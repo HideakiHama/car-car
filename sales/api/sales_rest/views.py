@@ -47,6 +47,7 @@ class SalesRecordListEncoder(ModelEncoder):
         }
 
 
+
 @require_http_methods(["GET"])
 def automobile_vo_list(request):
     if request.method == "GET":
@@ -54,24 +55,24 @@ def automobile_vo_list(request):
         return JsonResponse(
             {"automobiles": automobiles},
             encoder=AutomobileVOEncoder,
-            safe=False
+            safe=False,
         )
 
 @require_http_methods(["DELETE"])
-def automobile_vo_delete(request,pk):
+def auto_vo_delete(request, pk):
     if request.method == "DELETE":
-            count, _= AutomobileVO.objects.filter(id=pk).delete()
-            return JsonResponse({"deleted": count >0})
+        count, _ = AutomobileVO.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
 
 
 @require_http_methods(["GET", "POST"])
-def sales_records_list(request):
+def sales_record_list(request):
     if request.method == "GET":
         sales_records = SalesRecord.objects.all()
         return JsonResponse(
             {"sales_records": sales_records},
             encoder=SalesRecordListEncoder,
-            safe=False
+            safe=False,
         )
     else:
         try:
@@ -84,13 +85,13 @@ def sales_records_list(request):
             }
             sales_record = SalesRecord.objects.create(**content)
             return JsonResponse(
-                {"sale_record": sales_record},
+                {"sales_record": sales_record},
                 encoder=SalesRecordListEncoder,
                 safe=False,
             )
         except:
             response = JsonResponse(
-                {"message": "BFFR you have an error"}
+                {"message": "Error"}
             )
             response.status_code = 400
             return response
@@ -112,12 +113,19 @@ def customer_list(request):
             return JsonResponse(customer, encoder=CustomerEncoder, safe=False)
         except:
             response = JsonResponse(
-                {"message": "Customer cannot be created."}
+                {"message": "Error"}
             )
             response.status_code = 400
             return response
 
- 
+
+@require_http_methods(["DELETE"])
+def customer_delete(request, pk):
+    if request.method == "DELETE":
+        count, _ = Customer.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
+
+
 @require_http_methods(["GET", "POST"])
 def sales_person_list(request):
     if request.method == "GET":
@@ -133,7 +141,7 @@ def sales_person_list(request):
             return JsonResponse(sales_person, encoder=SalesPersonEncoder, safe=False)
         except:
             response = JsonResponse(
-                {"message": "Sales Person cannot be created.. Maybe?"}
+                {"message": "Error"}
             )
             response.status_code = 400
             return response
@@ -146,11 +154,10 @@ def sales_person_details(request, pk):
             sales_person = SalesPerson.objects.get(id=pk)
             return JsonResponse(sales_person, encoder=SalesPersonEncoder, safe=False)
         except SalesPerson.DoesNotExist:
-            response = JsonResponse({"message": "Does not exist"})
+            response = JsonResponse({"message": "NonExistent"})
             response.status_code = 404
             return response
     else:
         if request.method == "DELETE":
             count, _ = SalesPerson.objects.filter(id=pk).delete()
             return JsonResponse({"deleted": count > 0})
-               
