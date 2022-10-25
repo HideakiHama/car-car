@@ -12,7 +12,7 @@ class Technician(models.Model):
     employee_number = models.IntegerField(unique=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
 
 class Service(models.Model):
