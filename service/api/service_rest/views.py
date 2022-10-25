@@ -9,7 +9,7 @@ from .models import AutomobileVO, Technician, Service
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin"]
+    properties = ["import_href", "vin"]
 
 
 class TechnicianEncoder(ModelEncoder):
@@ -25,10 +25,10 @@ class ServiceListEncoder(ModelEncoder):
         "time_app",
         "reason",
         "technician",
-        "vin",
+        "vin_service",
     ]
 
-    encoder = {"vin": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
+    encoder = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
 
 
 class ServiceDetailEncoder(ModelEncoder):
@@ -39,10 +39,10 @@ class ServiceDetailEncoder(ModelEncoder):
         "time_app",
         "reason",
         "technician",
-        "vin",
+        "vin_service",
     ]
 
-    encoder = {"vin": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
+    encoder = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
 
 
 @require_http_methods(["GET", "POST"])
@@ -53,9 +53,11 @@ def list_service(request):
     else:
         content = json.loads(request.body)
         try:
-            vin_href = content["vin"]
-            vin = AutomobileVO.object.get(import_href=vin_href)
-            content["vin"] = vin
+            vin_service = content["vin_service"]
+
+            vin = AutomobileVO.objects.get(import_href=vin_service)
+            print("###VIN####", vin)
+            content["vin_service"] = vin
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Vin number doesn't exist"},
@@ -67,23 +69,15 @@ def list_service(request):
 
 
 @require_http_methods(["GET", "DELETE", "PUT"])
-def detail_service(request, pk):
+def detail_service(request, vin):
     if request.method == "GET":
-        service = Service.object.get(id=pk)
+        service = Service.objects.get(vin_service=vin)
         return JsonResponse(service, encoder=ServiceDetailEncoder, safe=False)
     elif request.method == "DELETE":
-        count, _ = Service.object.filter(id=pk).delete()
+        count, _ = Service.objects.filter(vin_service=vin).delete()
         return JsonResponse({"deleted?": count > 0})
     else:
         content = json.loads(request.body)
-        Service.objects.filter(id=pk).update(**content)
-        service = Service.objects.get(id=pk)
+        Service.objects.filter(vin=vin).update(**content)
+        service = Service.objects.get(vin_service=vin)
         return JsonResponse(service, encoder=ServiceDetailEncoder, safe=False)
-
-
-# class ServiceAppointmentDetail(ModelEncoder):
-#     pass
-
-
-# class PreviousServiceList(ModelEncoder):
-#     pass
