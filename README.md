@@ -6,6 +6,8 @@ Team:
  Curtis - Sales
 * Person 2 - Which microservice?
  Aki - Service
+* Person 1 - Aki Hama (Service)
+* Person 2 - Curtis Cheung (Sales)
 
 ## Design
 
