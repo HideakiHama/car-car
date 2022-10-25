@@ -9,7 +9,7 @@ from .models import AutomobileVO, Technician, Service
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["import_href", "vin"]
+    properties = ["import_href", "vin", "id"]
 
 
 class TechnicianEncoder(ModelEncoder):
@@ -17,7 +17,7 @@ class TechnicianEncoder(ModelEncoder):
     properties = ["name", "employee_number", "id"]
 
 
-class ServiceListEncoder(ModelEncoder):
+class ServiceEncoder(ModelEncoder):
     model = Service
     properties = [
         "customer_name",
@@ -26,38 +26,28 @@ class ServiceListEncoder(ModelEncoder):
         "reason",
         "technician",
         "vin_service",
+        "id",
     ]
 
-    encoder = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
-
-
-class ServiceDetailEncoder(ModelEncoder):
-    model = Service
-    properties = [
-        "customer_name",
-        "date_app",
-        "time_app",
-        "reason",
-        "technician",
-        "vin_service",
-    ]
-
-    encoder = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
+    encoders = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
 
     def get_extra_data(self, o):
         return {"name": o.technician.name}
+
+
+##Service##
 
 
 @require_http_methods(["GET", "POST"])
 def list_service(request):
     if request.method == "GET":
         service = Service.objects.all()
-        return JsonResponse({"service": service}, encoder=ServiceListEncoder)
+        return JsonResponse({"service": service}, encoder=ServiceEncoder)
     else:
         content = json.loads(request.body)
         try:
             vin_service = content["vin_service"]
-            vin = AutomobileVO.objects.get(import_href=vin_service)
+            vin = AutomobileVO.objects.get(vin=vin_service)
             content["vin_service"] = vin
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
@@ -65,24 +55,22 @@ def list_service(request):
                 status=400,
             )
         try:
-            technician = content["technician"]
-            tech = Technician.objects.get(id=technician)
-            print("###TECH###", tech)
+            tech = Technician.objects.get(pk=content["technician"])
             content["technician"] = tech
 
         except Technician.DoesNotExist:
             return JsonResponse({"message": "Technician doesn't exist"}, status=400)
 
         service = Service.objects.create(**content)
-        print("###SERVICE####", service)
-        return JsonResponse(service, encoder=ServiceDetailEncoder, safe=False)
+
+        return JsonResponse(service, encoder=ServiceEncoder, safe=False)
 
 
 @require_http_methods(["GET", "DELETE", "PUT"])
 def detail_service(request, vin):
     if request.method == "GET":
         service = Service.objects.get(vin_service=vin)
-        return JsonResponse(service, encoder=ServiceDetailEncoder, safe=False)
+        return JsonResponse(service, encoder=ServiceEncoder, safe=False)
     elif request.method == "DELETE":
         count, _ = Service.objects.filter(vin_service=vin).delete()
         return JsonResponse({"deleted?": count > 0})
@@ -90,7 +78,10 @@ def detail_service(request, vin):
         content = json.loads(request.body)
         Service.objects.filter(vin=vin).update(**content)
         service = Service.objects.get(vin_service=vin)
-        return JsonResponse(service, encoder=ServiceDetailEncoder, safe=False)
+        return JsonResponse(service, encoder=ServiceEncoder, safe=False)
+
+
+##Technician##
 
 
 @require_http_methods(["GET", "POST"])

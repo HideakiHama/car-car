@@ -1,10 +1,14 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
+from django.urls import reverse
 
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
     import_href = models.CharField(max_length=200, blank=True, null=True, unique=True)
+
+    def get_api_url(self):
+        return reverse("detail_service", kwargs={"vin": self.vin})
 
 
 class Technician(models.Model):

@@ -14,7 +14,7 @@ class TechnicianForm extends React.Component{
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleEmployeeNumber = this.handleEmployeeNumber.bind(this)
-
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
 

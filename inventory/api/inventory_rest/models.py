@@ -35,4 +35,4 @@ class Automobile(models.Model):
     )
 
     def get_api_url(self):
-        return reverse("api_automobile", kwargs={"vin": self.vin})
+        return reverse("detail_service", kwargs={"vin": self.vin})
