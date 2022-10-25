@@ -6,7 +6,7 @@ Team:
 * Person 2 - Curtis Cheung (Sales)
 
 ## Design
-CarCar allows the user to create and keep records.
+
 ## Service microservice
 
 Explain your models and integration with the inventory
@@ -14,6 +14,8 @@ microservice, here.
 
 ## Sales microservice
 
+Explain your models and integration with the inventory
+microservice, here.
 Created four models for microservice
 ######################################################################
 - Model 1 - AutomobileVO - This Value Object Model serves to integrate the inventory microservice by using the vin property.
