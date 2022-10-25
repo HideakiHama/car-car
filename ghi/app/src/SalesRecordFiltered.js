@@ -24,7 +24,7 @@ export default function SalesRecordFiltered({ salesRecords }) {
                             <th>Sales Person</th>
                             <th>Customer</th>
                             <th>VIN</th>
-                            <th>Sales Price</th>
+                            <th>Sale Price</th>
                         </tr>
                     </thead>
                     <tbody>

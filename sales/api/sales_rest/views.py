@@ -1,51 +1,40 @@
-from django.shortcuts import render
+from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
-from django.http import JsonResponse
-# import encoders from common.json.py
-# import models from the api.models
+
+
 from common.json import ModelEncoder
 from .models import SalesRecord, AutomobileVO, SalesPerson, Customer
 
-
-# View for customer encoder
-class CustomerEncoder(ModelEncoder):
-    model = Customer
-    properties = ["name","address","phone_number", "id"]
-
-
-# View for Sales Person encoder
-class SalesPersonEncoder(ModelEncoder):
-    model = SalesPerson
-    properties = ["name", "employee_number", "id"]
-
-
-# View for the value object Automobile VO
+# Create your views here.
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["vin", "id"]
 
 
-# View Encoder for SalesRecord List
-# This has to go last, or else the encoders do not work
+class CustomerEncoder(ModelEncoder):
+    model = Customer
+    properties = ["name", "address", "phone_number", "id"]
+
+
+class SalesPersonEncoder(ModelEncoder):
+    model = SalesPerson
+    properties = ["name", "employee_number", "id"]
+
+
 class SalesRecordListEncoder(ModelEncoder):
     model = SalesRecord
-    properties = [
-        "sales_person",
-        "customer",
-        "sales_price",
-        "id",
-    ]
+    properties = ["sales_person", "customer", "sales_price", "id"]
     encoders = {
-        "sales_person" : SalesPersonEncoder(),
-        "customer" : CustomerEncoder(),
+        "sales_person": SalesPersonEncoder(),
+        "customer": CustomerEncoder(),
+        "automobile": AutomobileVOEncoder()
     }
 
     def get_extra_data(self, o):
         return {
-            "vin": o.automobile.vin
+            "vin": o.automobile.vin,
         }
-
 
 
 @require_http_methods(["GET"])
@@ -91,7 +80,7 @@ def sales_record_list(request):
             )
         except:
             response = JsonResponse(
-                {"message": "Error"}
+                {"message": "Sales Record cannot be created"}
             )
             response.status_code = 400
             return response
@@ -113,7 +102,7 @@ def customer_list(request):
             return JsonResponse(customer, encoder=CustomerEncoder, safe=False)
         except:
             response = JsonResponse(
-                {"message": "Error"}
+                {"message": "Customer cannot be created."}
             )
             response.status_code = 400
             return response
@@ -141,7 +130,7 @@ def sales_person_list(request):
             return JsonResponse(sales_person, encoder=SalesPersonEncoder, safe=False)
         except:
             response = JsonResponse(
-                {"message": "Error"}
+                {"message": "Sales Person cannot be created.. Maybe?"}
             )
             response.status_code = 400
             return response
@@ -154,7 +143,7 @@ def sales_person_details(request, pk):
             sales_person = SalesPerson.objects.get(id=pk)
             return JsonResponse(sales_person, encoder=SalesPersonEncoder, safe=False)
         except SalesPerson.DoesNotExist:
-            response = JsonResponse({"message": "NonExistent"})
+            response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
     else:

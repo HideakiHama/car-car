@@ -1,23 +1,19 @@
 import React, { Component } from 'react'
 
-export default class SalesRepForm extends Component {
+export default class ManufacturerForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            employeeNumber: '',
         }
         this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleEmployeeNumberChange = this.handleEmployeeNumberChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     async handleSubmit(event) {
         event.preventDefault();
         const data = { ...this.state };
-        data.employee_number = data.employeeNumber;
-        delete data.employeeNumber;
-        const createSalesPerson = 'http://localhost:8090/api/sales-persons/';
+        const createManufacturer = 'http://localhost:8100/api/manufacturers/';
         const fetchConfig = {
             method: 'post',
             body: JSON.stringify(data),
@@ -26,15 +22,14 @@ export default class SalesRepForm extends Component {
             },
         };
 
-        const response = await fetch(createSalesPerson, fetchConfig);
+        const response = await fetch(createManufacturer, fetchConfig);
         if (response.ok) {
-            const newSalesPerson = await response.json();
-            console.log(newSalesPerson);
+            const newManufacturer = await response.json();
+            console.log(newManufacturer);
         }
 
         const cleared = {
             name: '',
-            employeeNumber: '',
         }
         this.setState(cleared);
     }
@@ -44,10 +39,6 @@ export default class SalesRepForm extends Component {
         this.setState({ name: value });
     }
 
-    handleEmployeeNumberChange(event) {
-        const value = event.target.value;
-        this.setState({ employeeNumber: value });
-    }
 
     render() {
         return (
@@ -55,18 +46,13 @@ export default class SalesRepForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1>Welcome new valuable Employee</h1>
-                            <h3> What is Your Name and desired Employee Number</h3>
+                            <h1>New manufacturer</h1>
                             <form onSubmit={this.handleSubmit} id="create-salerep-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
                                     <label htmlFor="name">Name</label>
                                 </div>
-                                <div className="form-floating mb-3">
-                                    <input onChange={this.handleEmployeeNumberChange} value={this.state.employeeNumber} placeholder="Employee Number" required type="number" name="employeeNumber" id="employeeNumber" className="form-control" />
-                                    <label htmlFor="employeeNumber">Employee Number</label>
-                                </div>
-                                <button className="btn btn-outline-dark">Let's get to Selling</button>
+                                <button className="btn btn-outline-dark">Create</button>
                             </form>
                         </div>
                     </div>

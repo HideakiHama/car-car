@@ -13,7 +13,6 @@ import ManufacturersList from "./ManufacturersList";
 import ManufacturerForm from "./ManufacturerForm";
 import VehicleInventory from "./VehicleInventory";
 import VehicleForm from "./VehicleForm";
-
 import "./index.css";
 
 export default class App extends Component {
@@ -26,24 +25,20 @@ export default class App extends Component {
     fetch("http://localhost:8090/api/sales-records/")
       .then(sales_records => sales_records.json())
       .then(sales_records => this.setState(sales_records))
-    fetch("http://localhost:8080/api/technicians/")
-      .then(technicians => technicians.json())
-      .then(technicians => this.setState(technicians))
+
     fetch("http://localhost:8100/api/manufacturers/")
       .then(manufacturers => manufacturers.json())
       .then(manufacturers => this.setState(manufacturers))
+
     fetch("http://localhost:8100/api/models/")
       .then(models => models.json())
       .then(models => this.setState(models))
-    fetch("http://localhost:8080/api/appointments/")
-      .then(appointments => appointments.json())
-      .then(appointments => this.setState(appointments))
+
     fetch("http://localhost:8100/api/automobiles/")
       .then(automobiles => automobiles.json())
       .then(automobiles => this.setState(automobiles))
 
   }
-
   render() {
     return (
       <BrowserRouter>

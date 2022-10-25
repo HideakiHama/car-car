@@ -75,7 +75,7 @@ export default class CustomerForm extends Component {
                                     <input onChange={this.handlePhoneNumberChange} value={this.state.phoneNumber} placeholder="Phone Number" required type="text" name="phoneNumber" id="phoneNumber" className="form-control" />
                                     <label htmlFor="phoneNumber">Phone Number</label>
                                 </div>
-                                <button className="btn btn-outline-dark">Create</button>
+                                <button className="btn btn-outline-dark">Let's get to Buying!</button>
                             </form>
                         </div>
                     </div>

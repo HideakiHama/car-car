@@ -9,7 +9,7 @@ export default function SalesRecordList({ salesRecords }) {
                     <tr>
                         <th>Sales Person</th>
                         <th>Customer</th>
-                        <th>VIN</th>
+                        <th>Automobile VIN</th>
                         <th>Sales Price</th>
                     </tr>
                 </thead>

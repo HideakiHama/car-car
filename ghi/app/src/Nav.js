@@ -24,20 +24,73 @@ function Nav() {
                       </a>
                       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><NavLink className="dropdown-item" aria-current="page" to="customers/new/">New Customers</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-persons/new/">New Sales Representative</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/new/">New Sales Records</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-persons/new/">New Employee</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/new/">New Sales!</NavLink></li>
                         <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/">Sales Records</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/filter/">Employee Sales</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/filter/">Past Employee Sales</NavLink></li>
                       </ul>
                     </li>
                   </ul>
                 </div>
               </div>
-            </nav>          
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Inventory</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li><NavLink className="dropdown-item" aria-current="page" to="manufacturers/new/">New Manufacturer</NavLink></li>
+                      <li><NavLink className="dropdown-item" aria-current="page" to="manufacturers/">All Manufacturers</NavLink></li>
+                      <li><NavLink className="dropdown-item" aria-current="page" to="models/new/">New Vehicle Model</NavLink></li>
+                      <li><NavLink className="dropdown-item" aria-current="page" to="models/">All Models</NavLink></li>
+                      <li><NavLink className="dropdown-item" aria-current="page" to="automobiles/new/">New Automobile</NavLink></li>
+                      <li><NavLink className="dropdown-item" aria-current="page" to="automobiles/">All Automobiles</NavLink></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Service</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        {/* <li><NavLink className="dropdown-item" aria-current="page" to="customers/new/">New Customers</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-persons/new/">New Sales Representative</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/new/">New Sales Records</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/">Sales Records</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/filter/">Employee Sales</NavLink></li> */}
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+               
           </ul>
         </div>
       </div>
     </nav>
+        
+    
+
   )
 }
 
