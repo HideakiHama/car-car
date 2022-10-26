@@ -8,6 +8,7 @@ function MainPage() {
         </p>
         <img src="https://i.imgur.com/XJ3oN04.png" alt="carcarlogo"></img>
       </div>
+      <h3 style={{color: "Blue"}}> Making Love to Cars since 2021</h3>
     </div>
   );
 }
