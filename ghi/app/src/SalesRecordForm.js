@@ -132,11 +132,7 @@ export default class SalesRepForm extends Component {
                                     <input onChange={this.handleSalesPriceChange} value={this.state.sales_price} placeholder="Sales Price" required type="text" name="sales_prices" id="sales_prices" className="form-control" />
                                     <label htmlFor="sales_price">Sale Price</label>
                                 </div>
-<<<<<<< HEAD
-                                <button className="btn btn-outline-success">Create</button>
-=======
                                 <button className="btn btn-outline-success">Enjoy Your New Baby!</button>
->>>>>>> sales
                             </form>
                             <br></br>
                             <br></br>
