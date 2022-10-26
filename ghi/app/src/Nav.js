@@ -15,7 +15,7 @@ function Nav() {
           <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="technician/new">Technician</NavLink>
             </li>
             <li className="nav-item">
@@ -23,7 +23,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="service/list">Service List</NavLink>
-            </li>
+            </li> */}
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
               <div class="container-fluid">
                 <a class="navbar-brand" href="#">Sales</a>
@@ -86,11 +86,11 @@ function Nav() {
 
                       </a>
                       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        {/* <li><NavLink className="dropdown-item" aria-current="page" to="customers/new/">New Customers</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-persons/new/">New Sales Representative</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/new/">New Sales Records</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/">Sales Records</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/filter/">Employee Sales</NavLink></li> */}
+                        <li><NavLink className="dropdown-item" aria-current="page" to="technician/new">New Technician</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="service/new">New service appointment</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="service/list">Service Appointments</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="service/history">Service History</NavLink></li>
+                        {/* <li><NavLink className="dropdown-item" aria-current="page" to="sales-records/filter/">Employee Sales</NavLink></li> */}
                       </ul>
                     </li>
                   </ul>

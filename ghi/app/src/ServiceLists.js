@@ -1,3 +1,5 @@
+import React from 'react';
+
 const deleteService = async (id) => {
 
   fetch(`http://localhost:8080/api/service/${id}/`, {
@@ -11,11 +13,11 @@ const deleteService = async (id) => {
 
 
 
-function ServiceList(props) {
+function ServiceList({ services }) {
 
     return(
     <div>
-
+      <h1>Service Appointments</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -25,11 +27,10 @@ function ServiceList(props) {
             <th>Time</th>
             <th>Technician</th>
             <th>Reason</th>
-
           </tr>
         </thead>
         <tbody>
-          {props.service.map(service => {
+          {services && services.map(service => {
             return (
               <tr key={service.id}>
                 <td>{service.vin_service["vin"]}</td>
@@ -37,9 +38,10 @@ function ServiceList(props) {
                 <td>{service.date_app}</td>
                 <td>{service.time_app}</td>
                 <td>{service.technician["name"]}</td>
-                <td>{service.id}</td>
+                <td>{service.reason}</td>
 
                 <td><button className="btn btn-danger" onClick={() => deleteService(service.id)} type="button">Cancel</button></td>
+                <td><button className="btn btn-success" onClick={() => deleteService(service.id)}>Finished</button></td>
               </tr>
             );
           })}

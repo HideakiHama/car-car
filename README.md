@@ -24,44 +24,36 @@ Following NAV bar is required for Automobile page:
 4) Individual VIN detail when a suer enter the VIN number
 
 ## Port Information ##
-      Sales: Port 8090
-      Service: Port 8080
+  Sales: Port 8090
+  Service: Port 8080
         URL -> http://localhost:8080/api/service/
-      Inventory(for browser or insomnia): port 8100
+  Inventory(for browser or insomnia): port 8100
         URL -> http://localhost:8100/api/automobiles/
-      Inventory(for polling service): port 8000
+  Inventory(for polling service): port 8000
         base URL of poll -> http://inventory-api:8000
-      React: Port 3000
+  React: Port 3000
         URL -> http://localhost:3000/
 
 
     RESTful Service views with urls:
-    list_service are functins for:
-      -GET-  get the list of service  http://localhost:8080/api/service/
-      -POST- Create a service   http://localhost:8080/api/service/
-    detail_service are function for:
-      -GET-  get the detail of service http://localhost:8080/api/service/<str:vin>/
-      -PUT-  Update a service  http://localhost:8080/api/service/<vin>/
-      -DELETE-  Delete a service  http://localhost:8080/api/service/<str:vin>/
+list_service are functins for:
+  -GET-  get the list of service  http://localhost:8080/api/service/
+  -POST- Create a service   http://localhost:8080/api/service/
+detail_service are function for:
+  -GET-  get the detail of service http://localhost:8080/api/service/<str:vin>/
+  -PUT-  Update a service  http://localhost:8080/api/service/<vin>/
+  -DELETE-  Delete a service  http://localhost:8080/api/service/<str:vin>/
 
     RESTful Technician views with urls:
-    list_technician are functins for:
-      -GET-  get the list of technician  http://localhost:8080/api/technician/
-      -POST- Create a technician   http://localhost:8080/api/technician/
-    detail_technician are function for:
-      -GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
-      -PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
-      -DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
+list_technician are functins for:
+  -GET-  get the list of technician  http://localhost:8080/api/technician/
+  -POST- Create a technician   http://localhost:8080/api/technician/
+detail_technician are function for:
+  -GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
+  -PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
+  -DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
 
 ## Service microservice
-
-[] Model
-[] Views
-[] URLS
-[] Polls
-[] React
-  [] Form
-  []
 
 Explain your models and integration with the inventory
 microservice, here.
@@ -94,7 +86,7 @@ Created four models for microservice
 - Model 1 - AutomobileVO - This Value Object Model serves to integrate the inventory microservice by using the vin property.
 - This allows us to make the foreign key relationship between salesrecord and automobile from the inventory.
 ######################################################################
-- Model 2 - Customer - Each customer has three properties 
+- Model 2 - Customer - Each customer has three properties
 - prop_1 - Name
 - prop_2 - Address
 - prop_3 - Phone Number

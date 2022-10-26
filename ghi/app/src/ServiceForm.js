@@ -220,7 +220,9 @@ class ServiceForm extends React.Component{
                     <label htmlFor="reason">The reason for the service appointment</label>
                   </div>
                   <button className="btn btn-primary">Register</button>
+
                 </form>
+
               </div>
             </div>
           </div>

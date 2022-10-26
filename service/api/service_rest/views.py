@@ -67,17 +67,17 @@ def list_service(request):
 
 
 @require_http_methods(["GET", "DELETE", "PUT"])
-def detail_service(request, vin):
+def detail_service(request, pk):
     if request.method == "GET":
-        service = Service.objects.get(vin_service=vin)
+        service = Service.objects.get(id=pk)
         return JsonResponse(service, encoder=ServiceEncoder, safe=False)
     elif request.method == "DELETE":
-        count, _ = Service.objects.filter(vin_service=vin).delete()
+        count, _ = Service.objects.filter(id=pk).delete()
         return JsonResponse({"deleted?": count > 0})
     else:
         content = json.loads(request.body)
-        Service.objects.filter(vin=vin).update(**content)
-        service = Service.objects.get(vin_service=vin)
+        Service.objects.filter(id=pk).update(**content)
+        service = Service.objects.get(id=pk)
         return JsonResponse(service, encoder=ServiceEncoder, safe=False)
 
 
