@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 export default function ServiceHistory({ pastService }) {
 
-  const[searchVin, setSearchVin] = useState("");
-  const[isClicked, setIsClicked] = useState(false)
-  const handleFilter = event => {setSearchVin(event.target.value)};
+  const[search, setSearch] = useState("");
 
-  useEffect(() => {
-    if(isClicked){
-      setIsClicked(false)
-    }
-  }, [isClicked])
+  const handleFilter = event => {setSearch(event.target.value)};
+
+  const handleSubmit = event => {
+    console.log("#####HANDLESUBMIT RAN#####")
+    event.preventDefault()
+
+    //
+
+    console.log( "##search##", search)
+
+    //
+
+    setSearch("")
+
+  }
 
 
   return (
@@ -18,12 +26,12 @@ export default function ServiceHistory({ pastService }) {
     <h1>Service Appointments</h1>
       <div className="constiner">
         <div className="pb row">
-          <form id="searchForm" name="searchForm" method="get">
-              <input onChange={handleFilter} value={searchVin} type="text" placeholder="Enter the VIN number"/>
-              <button stype="submit" onClick={() => setIsClicked(false)}>Search Vin</button>
+          <form id="searchForm" onSubmit={handleSubmit}>
+              <input onChange={handleFilter} value={search} type="text" placeholder="Enter the VIN number"/>
+              <button stype="submit" >Search Vin</button>
           </form>
         </div>
-                { setIsClicked && searchVin && searchVin.length !== 0 &&
+                { search.length === 17 &&
               <table className="table table-striped">
                 <thead>
                   <tr>
@@ -36,7 +44,7 @@ export default function ServiceHistory({ pastService }) {
                   </tr>
                 </thead>
                 <tbody>
-                {pastService?.filter(service => service.vin_service["vin"].toLowerCase().includes(searchVin.toLowerCase()))
+                {pastService?.filter(service => service.vin_service["vin"].toLowerCase().includes(search.toLowerCase()))
                 .map(service => {
                   return(
                     <tr key={service.id}>

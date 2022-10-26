@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 
 class ServiceForm extends React.Component{
 
@@ -154,6 +154,7 @@ class ServiceForm extends React.Component{
                     })}
                   </select>
                   </div>
+                  <p>Not in our inventory? <NavLink className="h-0" to="/shoes/bin">Click here!</NavLink></p>
 
                   <div className="form-floating mb-3">
                     <input

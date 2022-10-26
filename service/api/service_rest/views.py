@@ -27,13 +27,9 @@ class ServiceEncoder(ModelEncoder):
         "technician",
         "vin_service",
         "id",
-        "vip",
     ]
 
     encoders = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
-
-    def get_extra_data(self, o):
-        return {"name": o.technician.name}
 
 
 ##Service##
