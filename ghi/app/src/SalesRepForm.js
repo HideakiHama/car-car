@@ -66,7 +66,7 @@ export default class SalesRepForm extends Component {
                                     <input onChange={this.handleEmployeeNumberChange} value={this.state.employeeNumber} placeholder="Employee Number" required type="number" name="employeeNumber" id="employeeNumber" className="form-control" />
                                     <label htmlFor="employeeNumber">Employee Number</label>
                                 </div>
-                                <button className="btn btn-outline-dark">Let's get to Selling</button>
+                                <button className="btn btn-outline-success">Let's get to Selling</button>
                             </form>
                         </div>
                     </div>
