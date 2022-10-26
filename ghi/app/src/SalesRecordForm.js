@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 export default class SalesRepForm extends Component {
     constructor(props) {
         super(props);
@@ -142,6 +143,9 @@ export default class SalesRepForm extends Component {
                                     height="500"
                                     alt="fun family"></img>
                             </div>
+                            <br></br>
+                            <br></br>
+
                         </div>
                     </div>
                 </div>

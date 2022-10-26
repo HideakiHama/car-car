@@ -91,6 +91,13 @@ export default class VehicleForm extends Component {
                                 </div>
                                 <button className="btn btn-outline-success">Create</button>
                             </form>
+                            <br></br>
+                            <br></br>
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/design-of-a-sculpted-car-with-sculpting-tools-royalty-free-image-1584895346.jpg?crop=1xw:0.87481xh;center,top&resize=1200:*" 
+                                    width="600"
+                                    height="300"
+                                    alt="fun function"></img>
+
                         </div>
                     </div>
                 </div>
