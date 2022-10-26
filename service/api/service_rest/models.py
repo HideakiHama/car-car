@@ -27,10 +27,10 @@ class Service(models.Model):
     technician = models.ForeignKey(
         Technician, related_name="servicetech", on_delete=models.CASCADE
     )
-
     vin_service = models.ForeignKey(
         AutomobileVO, related_name="vin_service", on_delete=models.CASCADE
     )
+    vip = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
         return self.customer_name

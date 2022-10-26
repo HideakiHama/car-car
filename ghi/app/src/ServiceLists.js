@@ -14,7 +14,7 @@ const deleteService = async (id) => {
 
 
 function ServiceList({ services }) {
-
+console.log(services)
     return(
     <div>
       <h1>Service Appointments</h1>

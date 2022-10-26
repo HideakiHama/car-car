@@ -27,6 +27,7 @@ class ServiceEncoder(ModelEncoder):
         "technician",
         "vin_service",
         "id",
+        "vip",
     ]
 
     encoders = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
