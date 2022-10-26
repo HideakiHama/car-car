@@ -6,9 +6,7 @@ function MainPage() {
         <p className="lead mb-4">
           Take home your new baby car TODAY!
         </p>
-          
-        <img src="https://image.shutterstock.com/image-vector/vector-auto-logo-sport-car-600w-1987067399.jpg" alt="carcarlogo"></img>
-          
+        <img src="https://i.imgur.com/XJ3oN04.png" alt="carcarlogo"></img>
       </div>
     </div>
   );
