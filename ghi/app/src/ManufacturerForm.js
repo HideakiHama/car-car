@@ -46,7 +46,7 @@ export default class ManufacturerForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1>New manufacturer</h1>
+                            <h1 style={{color: "Green"}}>New manufacturer</h1>
                             <form onSubmit={this.handleSubmit} id="create-salerep-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -54,6 +54,16 @@ export default class ManufacturerForm extends Component {
                                 </div>
                                 <button className="btn btn-outline-success">Create</button>
                             </form>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <div>
+                            <img src="https://cdn.bmwblog.com/wp-content/uploads/2019/08/BMW-luxury-class-04.jpg"
+                                width="640"
+                                height="400"
+                                align="center"
+                                alt="large model">
+                            </img>
                         </div>
                     </div>
                 </div>

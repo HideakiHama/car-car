@@ -67,7 +67,7 @@ export default class VehicleForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1 style={{color:"Blue"}}>New Vehicle Model</h1>
+                            <h1 style={{color:"green"}}>New Vehicle Model</h1>
                             <form onSubmit={this.handleSubmit} id="create-vehicleModel-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -89,7 +89,7 @@ export default class VehicleForm extends Component {
                                         })}
                                     </select>
                                 </div>
-                                <button className="btn btn-outline-dark">Create</button>
+                                <button className="btn btn-outline-success">Create</button>
                             </form>
                         </div>
                     </div>
