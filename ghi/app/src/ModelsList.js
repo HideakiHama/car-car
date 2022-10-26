@@ -18,7 +18,7 @@ export default function ModelsList({ vehicleList }) {
                             <tr key={model.href}>
                                 <td>{model.name}</td>
                                 <td>{model.manufacturer.name}</td>
-                                <td><img src={model.picture_url} alt="" width="60%" height="auto" /></td>
+                                <td><img src={model.picture_url} alt="" width="50%" height="auto" /></td>
                             </tr>
                         );
                     })}
