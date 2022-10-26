@@ -89,7 +89,7 @@ export default class SalesRepForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4 bdr">
-                            <h1>New Sale</h1>
+                            <h1 style= {{color:"green"}}>Sales Form</h1>
                             <form onSubmit={this.handleSubmit} id="create-salesrecord-form">
                                 <div className="mb-3">
                                     <select onChange={this.handleAutomobileChange} value={this.state.automobile} required name="automobiles" id="automobiles" className="form-select">
@@ -132,8 +132,16 @@ export default class SalesRepForm extends Component {
                                     <input onChange={this.handleSalesPriceChange} value={this.state.sales_price} placeholder="Sales Price" required type="text" name="sales_prices" id="sales_prices" className="form-control" />
                                     <label htmlFor="sales_price">Sale Price</label>
                                 </div>
-                                <button className="btn btn-outline-dark">Create</button>
+                                <button className="btn btn-outline-success">Enjoy Your New Baby!</button>
                             </form>
+                            <br></br>
+                            <br></br>
+                            <div>
+                            <img src="https://img.freepik.com/premium-vector/smiling-family-inside-their-new-red-car-driver-wheel-car-mom-daughter-are-sitting-back-seat_119217-291.jpg?w=2000" 
+                                    width="600"
+                                    height="500"
+                                    alt="fun family"></img>
+                            </div>
                         </div>
                     </div>
                 </div>

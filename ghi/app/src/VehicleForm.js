@@ -86,7 +86,7 @@ export default class VehicleForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1 style={{color: "Blue"}}>New Automobile</h1>
+                            <h1 style={{color: "green"}}>New Automobile</h1>
                             <form onSubmit={this.handleSubmit} id="create-automobile-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleColorChange} placeholder="Color" required type="text" name="color" id="color" className="form-control" />

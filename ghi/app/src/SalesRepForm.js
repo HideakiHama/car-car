@@ -55,8 +55,8 @@ export default class SalesRepForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1>Welcome new valuable Employee</h1>
-                            <h3> What is Your Name and desired Employee Number</h3>
+                            <h1 style= {{color:"green"}}>Welcome New Valuable Employee</h1>
+                            <h4> What is Your Name and desired Employee Number</h4>
                             <form onSubmit={this.handleSubmit} id="create-salerep-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -66,7 +66,7 @@ export default class SalesRepForm extends Component {
                                     <input onChange={this.handleEmployeeNumberChange} value={this.state.employeeNumber} placeholder="Employee Number" required type="number" name="employeeNumber" id="employeeNumber" className="form-control" />
                                     <label htmlFor="employeeNumber">Employee Number</label>
                                 </div>
-                                <button className="btn btn-outline-dark">Let's get to Selling</button>
+                                <button className="btn btn-outline-success">Let's get to Selling</button>
                             </form>
                         </div>
                     </div>
