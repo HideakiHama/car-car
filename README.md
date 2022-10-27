@@ -16,6 +16,8 @@ If a customer is indeed going to buy a automobile from an employee, You can crea
 
 To view past sales throughout the company you may choose to view the Sales record tab under sales. To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees.
 
+The delete inventory or employees you must log into admin - create a superuser in the cli of the api you want to delete something in. Then go to the admin page and log in. You can then delete whatever you want. Reason being, there is no login on the application thus anyone can delete things which would not be great.
+
 ## Service microservice
 
 Explain your models and integration with the inventory
