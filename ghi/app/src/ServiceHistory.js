@@ -3,21 +3,14 @@ import React, { useState } from 'react';
 export default function ServiceHistory({ pastService }) {
 
   const[search, setSearch] = useState("");
-
+  const[clicked,setClicked] = useState(null)
   const handleFilter = event => {setSearch(event.target.value)};
 
-  const handleSubmit = event => {
-    console.log("#####HANDLESUBMIT RAN#####")
-    event.preventDefault()
+  const submitHandler = event => {
+    event.preventDefault();
+    setClicked(pastService);
 
-    //
-
-    console.log( "##search##", search)
-
-    //
-
-    setSearch("")
-
+    // setSearch("");
   }
 
 
@@ -26,12 +19,12 @@ export default function ServiceHistory({ pastService }) {
     <h1>Service Appointments</h1>
       <div className="constiner">
         <div className="pb row">
-          <form id="searchForm" onSubmit={handleSubmit}>
+          <form id="searchForm" onSubmit={submitHandler}>
               <input onChange={handleFilter} value={search} type="text" placeholder="Enter the VIN number"/>
-              <button stype="submit" >Search Vin</button>
+              <button type="submit" >Search Vin</button>
           </form>
         </div>
-                { search.length === 17 &&
+                { clicked !== null && search.length !== 0 &&
               <table className="table table-striped">
                 <thead>
                   <tr>
@@ -44,7 +37,7 @@ export default function ServiceHistory({ pastService }) {
                   </tr>
                 </thead>
                 <tbody>
-                {pastService?.filter(service => service.vin_service["vin"].toLowerCase().includes(search.toLowerCase()))
+                { pastService?.filter(service => service.vin_service["vin"].toLowerCase().includes(search.toLowerCase()))
                 .map(service => {
                   return(
                     <tr key={service.id}>

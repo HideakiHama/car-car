@@ -19,19 +19,12 @@ class Technician(models.Model):
         return f"{self.name}"
 
 
-class Vip(models.Model):
+class DisplayTime(models.Model):
+    name = models.CharField(max_length=10)
     id = models.PositiveSmallIntegerField(primary_key=True)
-    name = models.CharField(max_Length=10, unique=True)
 
 
 class Service(models.Model):
-    @classmethod
-    def create(cls, **kwargs):
-        kwargs["vip"] = Vip.objects.get(name="VIP")
-        service = cls(**kwargs)
-        service.save()
-        return service
-
     customer_name = models.CharField(max_length=200)
     date_app = models.DateField()
     time_app = models.TimeField()
@@ -39,15 +32,31 @@ class Service(models.Model):
     technician = models.ForeignKey(
         Technician, related_name="servicetech", on_delete=models.CASCADE
     )
+
     vin_service = models.ForeignKey(
         AutomobileVO, related_name="vin_service", on_delete=models.CASCADE
     )
-    vip = models.ForeignKey(Vip, related_name="service", on_delete=models.PROTECT)
+    display_time = models.ForeignKey(
+        DisplayTime,
+        related_name="service",
+        on_delete=models.PROTECT,
+    )
 
-    def non_vip(self):
-        vip = Vip.objects.get(name="Non VIP")
-        self.vip = vip
-        self.save()
+    vip = models.BooleanField()
 
     def __str__(self):
         return self.customer_name
+
+    # def create_vip(self):
+    #     try:
+    #         self.vip
+    #     except ObjectDoesNotExist:
+    #         Vip.objects.create(service=self)
+
+
+## Not Used ##
+# class Vip(models.Model):
+#     created = models.DateField()
+#     service = models.OneToOneField(
+#         Service, related_name="vip_service", on_delete=models.CASCADE, primary_key=True
+#     )
