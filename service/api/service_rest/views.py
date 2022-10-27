@@ -9,7 +9,7 @@ from .models import AutomobileVO, Technician, Service, Time
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["import_href", "vin", "id"]
+    properties = ["vin", "id"]
 
 
 class TechnicianEncoder(ModelEncoder):
@@ -26,18 +26,17 @@ class ServiceEncoder(ModelEncoder):
     model = Service
     properties = [
         "customer_name",
+        "vip",
         "date",
         "time",
         "reason",
         "technician",
         "vin_service",
         "service_finished",
-        "new_vin",
         "id",
     ]
 
     encoders = {
-        "vin_service": AutomobileVOEncoder(),
         "technician": TechnicianEncoder(),
         "time": TimeEncoder(),
     }
@@ -53,15 +52,6 @@ def list_service(request):
         return JsonResponse({"service": service}, encoder=ServiceEncoder)
     else:
         content = json.loads(request.body)
-        try:
-            vin_service = content["vin_service"]
-            vin = AutomobileVO.objects.get(vin=vin_service)
-            content["vin_service"] = vin
-        except AutomobileVO.DoesNotExist:
-            return JsonResponse(
-                {"message": "Vin number doesn't exist"},
-                status=400,
-            )
         try:
             tech = Technician.objects.get(pk=content["technician"])
             content["technician"] = tech

@@ -37,11 +37,11 @@ export default function ServiceHistory({ pastService }) {
                   </tr>
                 </thead>
                 <tbody>
-                { pastService?.filter(service => service.vin_service["vin"].toLowerCase().includes(search.toLowerCase()))
+                { pastService?.filter(service => service.vin_service.toLowerCase().includes(search.toLowerCase()))
                 .map(service => {
                   return(
                     <tr key={service.id}>
-                      <td>{service.vin_service["vin"]}</td>
+                      <td>{service.vin_service}</td>
                       <td>{service.customer_name}</td>
                       <td>{service.date}</td>
                       <td>{service.time["name"]}</td>

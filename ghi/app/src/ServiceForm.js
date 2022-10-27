@@ -8,14 +8,15 @@ class ServiceForm extends React.Component{
 
     this.state = {
       vinService:'',
-      vins:[],
       customerName:'',
       date:'',
       time:'',
       times:[],
       technician:'',
       technicians:[],
-      reason:''
+      reason:'',
+      vip:true,
+      vins:[]
     }
 
 
@@ -33,14 +34,26 @@ class ServiceForm extends React.Component{
     event.preventDefault();
 
     const data = {...this.state}
+    console.log(data)
+
+    // Check the inventory
+    const listsOfVins = data.vins.map(vins =>{return(vins["vin"])})
+    const isInInventory = listsOfVins.includes(data.vinService)
+
+    // If vin number is NOT from the company's previous inventory
+    // delete vip data
+    if (!(isInInventory === true)){
+      delete data.vip
+    }
+
     data.vin_service = data.vinService
     data.customer_name = data.customerName
 
 
     delete data.vinService
-    delete data.vins
     delete data.customerName
     delete data.times
+    delete data.vins
     delete data.technicians
 
     const serviceUrl = "http://localhost:8080/api/service/"
@@ -114,7 +127,6 @@ class ServiceForm extends React.Component{
       const vinResponse = await fetch(vinUrl);
       if (vinResponse.ok) {
         const data = await vinResponse.json();
-
           this.setState({vins: data.autos})
       }
 
@@ -138,7 +150,8 @@ class ServiceForm extends React.Component{
               <div className="shadow p-4 mt-4">
                 <h1>Create a Service</h1>
                 <form onSubmit={this.handleSubmit} id="create-service-form">
-                  <div className="form-floating mb-3">
+
+                  {/* <div className="form-floating mb-3">
                   <select required value={this.state.vinService} onChange={this.handleVinServiceChange} id="technician" name="technician" className="form-select">
                     <option value="" >Find Vin</option>
                     {this.state.vins.map(autos => {
@@ -149,9 +162,22 @@ class ServiceForm extends React.Component{
                       );
                     })}
                   </select>
+                  </div> */}
+
+
+                  <div className="form-floating mb-3">
+                    <input
+                      onChange={this.handleVinServiceChange}
+                      value = {this.state.vinService}
+                      placeholder="Vin number"
+                      required
+                      type="text"
+                      id="vin_service"
+                      name="vin_service"
+                      className="form-control"
+                    />
+                    <label htmlFor="vin_service">Vin number</label>
                   </div>
-{/*
-                  <p>Not in our inventory? <NavLink className="h-0" to= "">Click here!</NavLink></p> */}
 
                   <div className="form-floating mb-3">
                     <input

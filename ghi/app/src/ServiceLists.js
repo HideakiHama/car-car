@@ -2,8 +2,6 @@ import React from 'react';
 
 
 function ServiceList({ services }) {
-  console.log(services)
-
 const deleteService = async (id) => {
 
   fetch(`http://localhost:8080/api/service/${id}/`, {
@@ -16,8 +14,6 @@ const deleteService = async (id) => {
 }
 
 const finishedService = async (id) => {
-
-
   fetch(`http://localhost:8080/api/service/${id}/`, {
     method: 'PUT',
     body: JSON.stringify({service_finished:true}),
@@ -38,6 +34,7 @@ const finishedService = async (id) => {
         <thead>
           <tr>
             <th>Vin</th>
+            <th></th>
             <th>Customer name</th>
             <th>Date</th>
             <th>Time</th>
@@ -51,7 +48,8 @@ const finishedService = async (id) => {
             return (
 
               <tr key={service.id}>
-                <td>{service.vin_service["vin"]}</td>
+                <td>{service.vin_service}</td>
+                <td>{service.vip ? 'VIP': false}</td>
                 <td>{service.customer_name}</td>
                 <td>{service.date}</td>
                 <td>{service.time["name"]}</td>

@@ -25,6 +25,7 @@ Following NAV bar is required for Automobile page:
 
 ## Port Information ##
   Sales: Port 8090
+        URL -> http://localhost:8080/api/sales/
   Service: Port 8080
         URL -> http://localhost:8080/api/service/
   Inventory(for browser or insomnia): port 8100
@@ -59,7 +60,8 @@ Explain your models and integration with the inventory
 microservice, here.
 
     Model 1: Technician
-  Has Technician name and employee number
+  To Create a Technician we need:
+
 
     Model 2: Service
   Has Vin number, Technician, Reason, Date and Time of
