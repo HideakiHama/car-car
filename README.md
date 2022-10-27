@@ -59,6 +59,7 @@ Following NAV bar is required for Automobile page:
       -GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
       -PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
       -DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
+The delete inventory or employees you must log into admin - create a superuser in the cli of the api you want to delete something in. Then go to the admin page and log in. You can then delete whatever you want. Reason being, there is no login on the application thus anyone can delete things which would not be great.
 
 ## Service microservice
 
