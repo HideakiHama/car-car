@@ -3,8 +3,9 @@ Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of h
 Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
 Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
 Step - 4 : In terminal run docker compose up --build, this will create all docker containers required to run the application
-Step - 5 : You can now open localhost:3000 to use said application
+Step - 5 : You can now open http://localhost:3000/ to use said application
 Step - 6 : Go to ## Design to read about how this application is used.
+### Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
 
 
 Team:
@@ -21,7 +22,7 @@ On customer side, all you need to do is create a profile under sales -> customer
 
 If a customer is indeed going to buy a automobile from an employee, You can create a new sale record under new sale! There you will enter the vin of the car you are selling, the employee in charge of selling car, and the customer buying. Lastly you agree on a sale price and create the receipt.
 
-To view past sales throughout the company you may choose to view the Sales record tab under sales. To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees.
+To view past sales throughout the company you may choose to view the Sales record tab under sales. To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees. As you type, the filter will start to take out the ones that do not fit the characters you are typing. Only leaving the desired employee that you want to look up.
 
 
 Following NAV bar is required for Automobile page:
@@ -116,3 +117,4 @@ Created four models for microservice
 - prop_1 - ForeignKey --> AutomobileVO
 - prop_2 - ForeignKey --> Customer
 - prop_3 - ForeignKey --> SalesPerson
+######################################################################
