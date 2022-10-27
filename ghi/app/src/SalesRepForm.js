@@ -68,6 +68,11 @@ export default class SalesRepForm extends Component {
                                 </div>
                                 <button className="btn btn-outline-success">Let's get to Selling</button>
                             </form>
+                            <br></br>
+                            <br></br>
+                            <img src="https://blog.close.com/content/images/hubfs/315483/Inside-20Sales-20Skills-20Matthew-20Wolf-20of-20Wall-20Street.jpg" width="500" height="300" alt="pic of sales rep">
+
+                            </img>
                         </div>
                     </div>
                 </div>

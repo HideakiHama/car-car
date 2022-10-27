@@ -1,12 +1,12 @@
 # CarCar
-Step - 1 : Fork This Repo / then clone the forked repo using git clone (url of http)
-Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal
+Step - 1 : Fork This Repo / then clone the forked repo ## git clone ->Enter url of forked repo<->
+Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal ## cd ->whatever folder you put project beta in<- then do it again into the project
 Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
-Step - 4 : In terminal run docker compose up --build, this will create all docker containers required to run the application
+Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
 Step - 5 : You can now open http://localhost:3000/ to use said application
 Step - 6 : Go to ## Design to read about how this application is used.
 ### Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
-
+## You can follow along using our provided examples
 
 Team:
 
@@ -14,7 +14,13 @@ Team:
 * Person 2 - Curtis Cheung (Sales)
 
 ## Design
-The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer. Afterwards Create a new vehicle model. Include a tinyurl of a picture of that vehicle. After that Create a new automobile, this is where you can pick the color, year and vin number for the new automobile you will be selling.
+- The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer. 
+## Example : Let's use "Tesla" as our manufacturer
+- Afterwards Create a new vehicle model. Include a tinyurl of a picture of that vehicle. 
+## --> lets input model name as "Model Y" 
+## --> Here is a already made tinyurl of a picture "https://tinyurl.com/2p8w467h"
+- After that Create a new automobile, this is where you can pick the color, year and vin number for the new automobile you will be selling. 
+## example --> Let's use the color "red" and the Vin # "4Y1SL65848Z411439"
 
 Once the automobile is created, you may go to sales and create a profile for an employee who will be selling the automobile.
 
