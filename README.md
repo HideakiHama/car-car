@@ -1,9 +1,14 @@
 # CarCar
-Step - 1 : Fork This Repo / then clone the forked repo ## git clone ->Enter url of forked repo<->
+Step - 1 : Fork This Repo / then clone the forked 
+## use git clone (URL) --> AFTER FORKING
 Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal ## cd ->whatever folder you put project beta in<- then do it again into the project
+## cd (directory) --> then cd project-beta
+## once in project-beta use --> code . to open it in vscode
 Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
 Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
+## in the vscode terminal run command --> docker compose up --build
 Step - 5 : You can now open http://localhost:3000/ to use said application
+## click link to localhost:3000 
 Step - 6 : Go to ## Design to read about how this application is used.
 ### Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
 ## You can follow along using our provided examples
@@ -13,22 +18,32 @@ Team:
 * Person 1 - Aki Hama (Service)
 * Person 2 - Curtis Cheung (Sales)
 
-## Design
+## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer. 
 ## Example : Let's use "Tesla" as our manufacturer
 - Afterwards Create a new vehicle model. Include a tinyurl of a picture of that vehicle. 
 ## --> lets input model name as "Model Y" 
-## --> Here is a already made tinyurl of a picture "https://tinyurl.com/2p8w467h"
+## --> Here is a already made tinyurl of a picture "https://tinyurl.com/2p8w467h" Paste this in the urls field
+## --> Make sure to find the manufacturer you created for the manufacturer field. In this case it is Tesla
 - After that Create a new automobile, this is where you can pick the color, year and vin number for the new automobile you will be selling. 
-## example --> Let's use the color "red" and the Vin # "4Y1SL65848Z411439"
+## example --> Let's use the color "red" and the Vin # "4Y1SL65848Z411439" --> Then pick the Model Y you have created
+## Check the tab "All Automobiles" to see if your Automobile has been made
 
 Once the automobile is created, you may go to sales and create a profile for an employee who will be selling the automobile.
-
+## Let's use Dockerman as the new employee
 On customer side, all you need to do is create a profile under sales -> customer. Once you have filled the necissary information, you may click the button labeled "Let's get to buying!"
-
+## Maybe let's enter your name!
 If a customer is indeed going to buy a automobile from an employee, You can create a new sale record under new sale! There you will enter the vin of the car you are selling, the employee in charge of selling car, and the customer buying. Lastly you agree on a sale price and create the receipt.
-
-To view past sales throughout the company you may choose to view the Sales record tab under sales. To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees. As you type, the filter will start to take out the ones that do not fit the characters you are typing. Only leaving the desired employee that you want to look up.
+## Here you will find the form in which purchases are made - lets go ahead and fill this out.
+## First let's put the vin we made which should be "4Y1SL65848Z411439"
+## Next let's put Dockerman as the person selling the vehicle
+## Now let's put your name as the customer
+## Finally let's create a sales price --> Let's use 20000 as the price of this model Y
+## Now click the button Enjoy Your New Baby! to take home your new car!
+To view past sales throughout the company you may choose to view the Sales record tab under sales.
+## Here in the sales record, you will find the sale that we have just made.
+ To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees. As you type, the filter will start to take out the ones that do not fit the characters you are typing. Only leaving the desired employee that you want to look up.
+## The search bar is for employee name that you want to look up.
 
 
 Following NAV bar is required for Automobile page:
