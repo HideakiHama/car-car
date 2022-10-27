@@ -4,7 +4,7 @@ import json
 
 from django.views.decorators.http import require_http_methods
 from common.json import ModelEncoder
-from .models import AutomobileVO, Technician, Service
+from .models import AutomobileVO, Technician, Service, Time
 
 
 class AutomobileVOEncoder(ModelEncoder):
@@ -17,19 +17,30 @@ class TechnicianEncoder(ModelEncoder):
     properties = ["name", "employee_number", "id"]
 
 
+class TimeEncoder(ModelEncoder):
+    model = Time
+    properties = ["name", "id"]
+
+
 class ServiceEncoder(ModelEncoder):
     model = Service
     properties = [
         "customer_name",
-        "date_app",
-        "time_app",
+        "date",
+        "time",
         "reason",
         "technician",
         "vin_service",
+        "service_finished",
+        "new_vin",
         "id",
     ]
 
-    encoders = {"vin_service": AutomobileVOEncoder(), "technician": TechnicianEncoder()}
+    encoders = {
+        "vin_service": AutomobileVOEncoder(),
+        "technician": TechnicianEncoder(),
+        "time": TimeEncoder(),
+    }
 
 
 ##Service##
@@ -57,6 +68,11 @@ def list_service(request):
 
         except Technician.DoesNotExist:
             return JsonResponse({"message": "Technician doesn't exist"}, status=400)
+        try:
+            time = Time.objects.get(id=content["time"])
+            content["time"] = time
+        except Time.DoesNotExist:
+            return JsonResponse({"message": "Time doesn't exist"}, status=400)
 
         service = Service.objects.create(**content)
 
@@ -105,3 +121,17 @@ def detail_technician(request, pk):
         Technician.objects.filter(id=pk).update(**content)
         technician = Technician.objects.get(id=pk)
         return JsonResponse(technician, encoder=TechnicianEncoder, safe=False)
+
+
+### Time ###
+
+
+@require_http_methods(["GET", "POST"])
+def list_time(request):
+    if request.method == "GET":
+        time = Time.objects.all()
+        return JsonResponse({"time": time}, encoder=TimeEncoder)
+    else:
+        content = json.loads(request.body)
+        time = Time.objects.create(**content)
+        return JsonResponse(time, encoder=TimeEncoder, safe=False)

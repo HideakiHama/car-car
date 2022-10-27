@@ -43,8 +43,8 @@ export default function ServiceHistory({ pastService }) {
                     <tr key={service.id}>
                       <td>{service.vin_service["vin"]}</td>
                       <td>{service.customer_name}</td>
-                      <td>{service.date_app}</td>
-                      <td>{service.time_app}</td>
+                      <td>{service.date}</td>
+                      <td>{service.time["name"]}</td>
                       <td>{service.technician["name"]}</td>
                       <td>{service.reason}</td>
                     </tr>

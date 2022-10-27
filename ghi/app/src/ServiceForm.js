@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 class ServiceForm extends React.Component{
 
@@ -10,8 +10,9 @@ class ServiceForm extends React.Component{
       vinService:'',
       vins:[],
       customerName:'',
-      dateApp:'',
-      timeApp:'',
+      date:'',
+      time:'',
+      times:[],
       technician:'',
       technicians:[],
       reason:''
@@ -20,8 +21,8 @@ class ServiceForm extends React.Component{
 
     this.handleVinServiceChange = this.handleVinServiceChange.bind(this);
     this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
-    this.handleDateAppChange = this.handleDateAppChange.bind(this);
-    this.handleTimeAppChange = this.handleTimeAppChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleTechnicianChange = this.handleTechnicianChange.bind(this);
     this.handleReasonChange = this.handleReasonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,14 +35,12 @@ class ServiceForm extends React.Component{
     const data = {...this.state}
     data.vin_service = data.vinService
     data.customer_name = data.customerName
-    data.date_app = data.dateApp
-    data.time_app = data.timeApp
+
 
     delete data.vinService
     delete data.vins
     delete data.customerName
-    delete data.dateApp
-    delete data.timeApp
+    delete data.times
     delete data.technicians
 
     const serviceUrl = "http://localhost:8080/api/service/"
@@ -60,8 +59,8 @@ class ServiceForm extends React.Component{
       this.setState ({
         vinService:'',
         customerName:'',
-        dateApp:'',
-        timeApp:'',
+        date:'',
+        time:'',
         technician:'',
         reason:''
       });
@@ -80,14 +79,14 @@ class ServiceForm extends React.Component{
       this.setState({customerName:value})
     }
 
-    handleDateAppChange(event){
+    handleDateChange(event){
       const value = event.target.value;
-      this.setState({dateApp:value})
+      this.setState({date:value})
     }
 
-    handleTimeAppChange(event){
+    handleTimeChange(event){
       const value = event.target.value;
-      this.setState({timeApp:value})
+      this.setState({time:value})
     }
 
     handleTechnicianChange(event){
@@ -118,6 +117,17 @@ class ServiceForm extends React.Component{
 
           this.setState({vins: data.autos})
       }
+
+      const timeUrl = "http://localhost:8080/api/time/"
+      const timeResponse = await fetch(timeUrl);
+      if (timeResponse.ok) {
+        const data = await timeResponse.json();
+
+          this.setState({times: data.time})
+      }
+
+
+
     }
 
 
@@ -128,20 +138,6 @@ class ServiceForm extends React.Component{
               <div className="shadow p-4 mt-4">
                 <h1>Create a Service</h1>
                 <form onSubmit={this.handleSubmit} id="create-service-form">
-                  {/* <div className="form-floating mb-3">
-                    <input
-                      onChange={this.handleVinServiceChange }
-                      value = {this.state.vinService}
-                      placeholder="Vin service"
-                      required
-                      type="text"
-                      name="vin_service"
-                      id="vin_service"
-                      className="form-control"
-                    />
-                    <label htmlFor="vin_service">VIN</label>
-                  </div> */}
-
                   <div className="form-floating mb-3">
                   <select required value={this.state.vinService} onChange={this.handleVinServiceChange} id="technician" name="technician" className="form-select">
                     <option value="" >Find Vin</option>
@@ -154,7 +150,8 @@ class ServiceForm extends React.Component{
                     })}
                   </select>
                   </div>
-                  <p>Not in our inventory? <NavLink className="h-0" to="/shoes/bin">Click here!</NavLink></p>
+{/*
+                  <p>Not in our inventory? <NavLink className="h-0" to= "">Click here!</NavLink></p> */}
 
                   <div className="form-floating mb-3">
                     <input
@@ -171,30 +168,44 @@ class ServiceForm extends React.Component{
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onChange={this.handleDateAppChange}
-                      value = {this.state.dateApp}
+                      onChange={this.handleDateChange}
+                      value = {this.state.date}
                       placeholder="Date App"
                       required
                       type="date"
-                      name="date_app"
-                      id="date_app"
+                      name="date"
+                      id="date"
                       className="form-control"
                     />
-                    <label htmlFor="date_app">Date of Service</label>
+                    <label htmlFor="date">Date of Service</label>
                   </div>
+
                   <div className="form-floating mb-3">
+                  <select required value={this.state.time} onChange={this.handleTimeChange} id="time" name="time" className="form-select">
+                    <option value="" >Time</option>
+                    {this.state.times.map(time => {
+                      return (
+                        <option key={time.id} value={time.id}>
+                             {time.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  </div>
+
+                  {/* <div className="form-floating mb-3">
                     <input
-                      onChange={this.handleTimeAppChange}
-                      value = {this.state.timeApp}
+                      onChange={this.handleTimeChange}
+                      value = {this.state.time}
                       placeholder="Time App"
                       required
                       type="time"
-                      name="time_app"
-                      id="time_app"
+                      name="time"
+                      id="time"
                       className="form-control"
                     />
-                    <label htmlFor="time_app">Time of Service</label>
-                  </div>
+                    <label htmlFor="time">Time of Service</label>
+                  </div> */}
                   <div className="form-floating mb-3">
                   <select required value={this.state.technician} onChange={this.handleTechnicianChange} id="technician" name="technician" className="form-select">
                     <option value="" >Assign Technician</option>
