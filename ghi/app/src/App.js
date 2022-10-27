@@ -41,12 +41,12 @@ export default class App extends Component {
     fetch("http://localhost:8100/api/automobiles/")
       .then(automobiles => automobiles.json())
       .then(automobiles => this.setState(automobiles))
-    // fetch("http://localhost:8080/api/appointments/")
-    //   .then(appointments => appointments.json())
-    //   .then(appointments => this.setState(appointments))
-    // fetch("http://localhost:8080/api/technicians/")
-    //   .then(technicians => technicians.json())
-    //   .then(technicians => this.setState(technicians))
+    fetch("http://localhost:8080/api/appointments/")
+      .then(appointments => appointments.json())
+      .then(appointments => this.setState(appointments))
+    fetch("http://localhost:8080/api/technicians/")
+      .then(technicians => technicians.json())
+      .then(technicians => this.setState(technicians))
 
   }
 
