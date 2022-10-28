@@ -14,7 +14,7 @@ function Nav() {
               <div className="container-fluid">
                 <a className="navbar-brand" href="#">Sales</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                  <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
                   <ul className="navbar-nav">
