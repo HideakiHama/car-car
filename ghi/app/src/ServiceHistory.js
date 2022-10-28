@@ -18,9 +18,11 @@ export default function ServiceHistory({ pastService }) {
     <h1 style= {{color:"green"}} >Service History</h1>
       <div className="constiner">
         <div className="pb row">
-          <form id="searchForm" onSubmit={submitHandler}>
-              <input onChange={handleFilter} value={search} type="text" placeholder="Enter the VIN number"/>
-              <button type="submit" >Search Vin</button>
+          <form className="input-group mb-3" id="searchForm" onSubmit={submitHandler}>
+              <input className="form-control" onChange={handleFilter} value={search} type="text" placeholder="Enter the 17 character VIN number"/>
+              <div className="input-group-append">
+                <button className="btn btn-outline-success" type="submit" >Search Vin</button>
+              </div>
           </form>
         </div>
                 { clicked !== null && search.length === 17 &&

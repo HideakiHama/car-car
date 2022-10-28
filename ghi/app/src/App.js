@@ -85,7 +85,7 @@ export default class App extends Component {
               <Route path="new/" element={<TechnicianForm />} />
             </Route>
             <Route path="service/">
-              <Route path="" element={<ServiceList services={this.state.service} />} />
+              <Route path="appointments" element={<ServiceList services={this.state.service} />} />
               <Route path="new/" element={<ServiceForm />} />
               <Route path="history/" element={<ServiceHistory pastService={this.state.service}/>} />
             </Route>
