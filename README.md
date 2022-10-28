@@ -2,7 +2,6 @@
 
 ## Link to Excalidraw diagram https://excalidraw.com/#json=232PGy0hUeoiSYqYuivVv,9-B8I70IfLKWPFedf0juYw
 
-![car car diagram](../../../Desktop/diagramCARCAR.png)
 
 - Step - 1 : Fork This Repo / then clone the forked
   - use git clone (URL) --> AFTER FORKING
