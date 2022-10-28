@@ -23,7 +23,18 @@
     * Person 1 - Aki Hama (Service) / (Inventory)
     * Person 2 - Curtis Cheung (Sales) / (Inventory)
 
+## Stack
 
+- HTML/CSS
+- Python
+- Django
+- JavaScript
+- React
+- PostgreSQL
+- Bootstrap
+- RESTful APIs
+- Docker
+- Microservices
 
 ## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer.
