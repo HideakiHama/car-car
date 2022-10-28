@@ -41,24 +41,22 @@ no .. more like neededing to have exact digit to compare with the vin in the inv
 -Enter the Time of Service.  "12pm" ?
 -Assign a Technician from the drop down meanu.  One we have is "John Doe"  Click it
 -Type down the reason for the service appointment on the input field just below the 'assigning technician'
-Maybe "Oil Change"
+Maybe type it "Oil Change"
 Click register to get the service going!
 ## Looking at Service Appointments
 Next lets talk about the "Service Appointments".
 This is the place where the user will see all the service appointments that is occuring currently.  You will see
-Vin of the automobile, Customers name, the date of the service, time of the service, technician handling the service,
-and the reason for the visit.   Wait .. do you see... a VIP? (You would see the 'VIP' if you were following the guideline of making the inventory by Curtis Cheung
-and also entered "4Y1SL65848Z411439" when we where making a service appointment.)
+Vin of the automobile, Customer's name, the date of the service, time of the service, technician handling the service,
+and the reason for the visit.   Wait .. do you see... a VIP? (You should see the 'VIP' if you were following the guideline of making the inventory by Curtis Cheung
+and also entered "4Y1SL65848Z411439" when we were making a service appointment.)
 The VIP tells us the customer bought the automobile from the companies inventory.  Congrats Jane!! your getting a VIP treatment for the Service.
-
 Other thing you'll see here:
-Delete Button -->
-Finished Button -->
+((  Delete Button  )) --> Deletes the appointment. Thus delete from the appointment list.
+((  Finished Button  )) --> Delete the appointment list but keeps the past service for future reference.
 ## Service History
-Finally the last part of the service is to check the past service history for particular VIN number.
-
-
-
+Finally the last part of the service is to check the past "Service History" for particular VIN number.
+Enter the Vin on the search input. Type "4Y1SL65848Z411439" and press enter.
+What do you see?  The past service histpry of VIN 4Y1SL65848Z411439!!
 
     * Person 2 - Curtis Cheung (Sales)
 
