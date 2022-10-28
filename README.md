@@ -2,17 +2,17 @@
 
 ## Link to Excalidraw diagram https://excalidraw.com/#json=232PGy0hUeoiSYqYuivVv,9-B8I70IfLKWPFedf0juYw
 
-Step - 1 : Fork This Repo / then clone the forked
-- use git clone (URL) --> AFTER FORKING
-Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal ## cd ->whatever folder you put project beta in<- then do it again into the project
-- cd (directory) --> then cd project-beta
-- once in project-beta use --> code . to open it in vscode
-Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
-Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
-- in the vscode terminal run command --> docker compose up --build
-Step - 5 : You can now open http://localhost:3000/ to use said application
+- Step - 1 : Fork This Repo / then clone the forked
+  - use git clone (URL) --> AFTER FORKING
+- Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal ## cd ->whatever folder you put project beta in<- then do it again into the project
+  - cd (directory) --> then cd project-beta
+  - once in project-beta use --> code . to open it in vscode
+- Step - 3 : After it is opened, you may then look around...why not, its a beautiful file
+- Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
+  - in the vscode terminal run command --> docker compose up --build
+- Step - 5 : You can now open http://localhost:3000/ to use said application
 - click link to localhost:3000
-Step - 6 : Go to ## Design to read about how this application is used.
+- Step - 6 : Go to ## Design to read about how this application is used.
 - Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
 - You can follow along using our provided examples
 
