@@ -18,7 +18,7 @@ export default function SalesRecordFiltered({ salesRecords }) {
                         </div>
                     </form>
                 </div>
-                <table className="table table-striped table-hover table-info bdr">
+                <table className="table table-hover table-success">
                     <thead>
                         <tr>
                             <th>Sales Person</th>

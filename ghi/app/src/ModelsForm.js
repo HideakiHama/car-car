@@ -67,7 +67,7 @@ export default class VehicleForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4">
-                            <h1 style={{color:"Blue"}}>New Vehicle Model</h1>
+                            <h1 style={{color:"green"}}>New Vehicle Model</h1>
                             <form onSubmit={this.handleSubmit} id="create-vehicleModel-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -89,8 +89,15 @@ export default class VehicleForm extends Component {
                                         })}
                                     </select>
                                 </div>
-                                <button className="btn btn-outline-dark">Create</button>
+                                <button className="btn btn-outline-success">Create</button>
                             </form>
+                            <br></br>
+                            <br></br>
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/design-of-a-sculpted-car-with-sculpting-tools-royalty-free-image-1584895346.jpg?crop=1xw:0.87481xh;center,top&resize=1200:*" 
+                                    width="600"
+                                    height="300"
+                                    alt="fun function"></img>
+
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,8 @@ export default class CustomerForm extends Component {
                 <div className="row">
                     <div className="offset-3 col-6">
                         <div className="shadow p-4 mt-4 bdr">
-                            <h1>New customer</h1>
+                            <h1 style={{color:"green"}}>New Valuable Customer</h1>
+                            <h3 style= {{color:"green"}}>Please Enter your information Here</h3>
                             <form onSubmit={this.handleSubmit} id="create-customer-form">
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
@@ -75,7 +76,7 @@ export default class CustomerForm extends Component {
                                     <input onChange={this.handlePhoneNumberChange} value={this.state.phoneNumber} placeholder="Phone Number" required type="text" name="phoneNumber" id="phoneNumber" className="form-control" />
                                     <label htmlFor="phoneNumber">Phone Number</label>
                                 </div>
-                                <button className="btn btn-outline-dark">Let's get to Buying!</button>
+                                <button className="btn btn-outline-success">Let's get to Buying!</button>
                             </form>
                         </div>
                     </div>

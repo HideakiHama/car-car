@@ -4,7 +4,7 @@ export default function SalesRecordList({ salesRecords }) {
     return (
         <>
             <h1>Sales Records</h1>
-            <table className="table bdr table-hover table-info table-striped">
+            <table className="table table-hover table-success">
                 <thead>
                     <tr>
                         <th>Sales Person</th>
