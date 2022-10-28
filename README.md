@@ -100,7 +100,7 @@ Service History
   Inventory(for polling service): port 8000
 - base URL of poll -> http://inventory-api:8000
 
-  React: Port 3000  (For checking out the FrontEnd)
+  React: Port 3000  (For checking the FrontEnd)
 - URL -> http://localhost:3000/
 
 

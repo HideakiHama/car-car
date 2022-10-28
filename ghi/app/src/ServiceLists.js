@@ -22,9 +22,7 @@ const finishedService = async (id) => {
     }
   })
   window.location.reload();
-
 }
-
 
 
   return(
@@ -46,7 +44,6 @@ const finishedService = async (id) => {
           {services?.filter(service => service.service_finished === false)
           .map(service => {
             return (
-
               <tr key={service.id}>
                 <td>{service.vin_service}</td>
                 <td>{service.vip ? 'VIP': false}</td>
@@ -55,7 +52,6 @@ const finishedService = async (id) => {
                 <td>{service.time}</td>
                 <td>{service.technician["name"]}</td>
                 <td>{service.reason}</td>
-
                 <td><button className="btn btn-success" onClick={() => finishedService(service.id)} type="button">Finished</button></td>
                 <td><button className="btn btn-danger" onClick={() => deleteService(service.id)} type="button">Delete</button></td>
               </tr>

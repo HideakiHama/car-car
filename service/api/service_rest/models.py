@@ -25,9 +25,7 @@ class Service(models.Model):
         Technician, related_name="servicetech", on_delete=models.CASCADE
     )
     vin_service = models.CharField(max_length=17)
-
     time = models.TimeField()
-
     vip = models.BooleanField(default=False)
     service_finished = models.BooleanField(default=False)
 

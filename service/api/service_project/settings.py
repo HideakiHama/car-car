@@ -27,14 +27,10 @@ SECRET_KEY = "django-insecure-6v%&r($8@l1=qo&wl1v34x)x^@uxqxuf#bq9s_uh-q8lmc(zk+
 DEBUG = True
 
 
-# TIME FORMAT
-TIME_INPUT_FORMATS = ["%I:%M %p"]
-
-
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
+    "corsheaders",
     "service_rest.apps.ServiceRestConfig",
     "django.contrib.admin",
     "django.contrib.auth",

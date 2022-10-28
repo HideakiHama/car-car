@@ -8,8 +8,6 @@ from .models import AutomobileVO, Technician, Service
 
 
 ## Custom ModelEncoder
-
-
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["vin", "id"]
@@ -40,8 +38,6 @@ class ServiceEncoder(ModelEncoder):
 
 
 ##Service##
-
-
 @require_http_methods(["GET", "POST"])
 def list_service(request):
     if request.method == "GET":
@@ -77,8 +73,6 @@ def detail_service(request, pk):
 
 
 ##Technician##
-
-
 @require_http_methods(["GET", "POST"])
 def list_technician(request):
     if request.method == "GET":

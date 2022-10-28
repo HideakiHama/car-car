@@ -13,7 +13,6 @@ export default function ServiceHistory({ pastService }) {
     // setSearch("");
   }
 
-
   return (
     <>
     <h1 style= {{color:"green"}} >Service History</h1>
@@ -55,6 +54,5 @@ export default function ServiceHistory({ pastService }) {
             }
       </div>
     </>
-
   )
 }

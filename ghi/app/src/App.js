@@ -1,24 +1,3 @@
-// import ServiceForm from './ServiceForm';
-// import ServiceList from './ServiceLists';
-// import TechnicianForm from './TechnicianForm';
-
-// function App(props) {
-
-//   return (
-//     <BrowserRouter>
-//       <Nav />
-//       {/* <div className="container"> */}
-//         <Routes>
-//           <Route path="/" element={<MainPage />} />
-//           <Route path="technician/new" element={<TechnicianForm />} />
-//           <Route path="service/new" element={<ServiceForm />} />
-//           <Route path="service/list" element={<ServiceList service={props.service} />} />
-//         </Routes>
-//       {/* </div> */}
-//     </BrowserRouter>
-//   );
-
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from "react";
 import SalesRecordForm from "./SalesRecordForm";
@@ -61,9 +40,6 @@ export default class App extends Component {
     fetch("http://localhost:8100/api/models/")
       .then(models => models.json())
       .then(models => this.setState(models))
-    fetch("http://localhost:8080/api/appointments/")
-      .then(appointments => appointments.json())
-      .then(appointments => this.setState(appointments))
     fetch("http://localhost:8100/api/automobiles/")
       .then(automobiles => automobiles.json())
       .then(automobiles => this.setState(automobiles))
@@ -105,10 +81,14 @@ export default class App extends Component {
               />
               <Route path="new/" element={<VehicleForm />} />
             </Route>
-            <Route path="technician/new" element={<TechnicianForm />} />
-            <Route path="service/new" element={<ServiceForm />} />
-            <Route path="service/list" element={<ServiceList services={this.state.service} />} />
-            <Route path="service/history" element={<ServiceHistory pastService={this.state.service} /> } />
+            <Route path="technician/">
+              <Route path="new/" element={<TechnicianForm />} />
+            </Route>
+            <Route path="service/">
+              <Route path="" element={<ServiceList services={this.state.service} />} />
+              <Route path="new/" element={<ServiceForm />} />
+              <Route path="history/" element={<ServiceHistory pastService={this.state.service}/>} />
+            </Route>
           </Routes>
         </div>
       </BrowserRouter>

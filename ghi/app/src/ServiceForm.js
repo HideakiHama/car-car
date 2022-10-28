@@ -28,7 +28,6 @@ class ServiceForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   async handleSubmit(event) {
     event.preventDefault();
 
@@ -44,8 +43,6 @@ class ServiceForm extends React.Component{
 
     data.vin_service = data.vinService
     data.customer_name = data.customerName
-
-
     delete data.vinService
     delete data.customerName
     delete data.vins
@@ -71,8 +68,6 @@ class ServiceForm extends React.Component{
         technician:'',
         reason:''
       });
-
-
   }
 }
 
@@ -123,9 +118,6 @@ class ServiceForm extends React.Component{
         const data = await vinResponse.json();
           this.setState({vins: data.autos})
       }
-
-
-
     }
 
 
@@ -226,8 +218,6 @@ class ServiceForm extends React.Component{
           </div>
       )
     }
-
-
   }
 
   export default ServiceForm;
