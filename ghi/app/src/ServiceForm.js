@@ -33,12 +33,9 @@ class ServiceForm extends React.Component{
     event.preventDefault();
 
     const data = {...this.state}
-    console.log(data)
-
     // Check the inventory
     const listsOfVins = data.vins.map(vins =>{return(vins["vin"])})
     const isInInventory = listsOfVins.includes(data.vinService)
-
     // If vin number is NOT from the company's previous inventory
     // delete vip data
     if (!(isInInventory === true)){
@@ -65,7 +62,6 @@ class ServiceForm extends React.Component{
     const response = await fetch(serviceUrl, fetchConfig);
     if(response.ok) {
       const newService = await response.json()
-      console.log(newService)
 
       this.setState ({
         vinService:'',
@@ -206,7 +202,7 @@ class ServiceForm extends React.Component{
                       );
                     })}
                   </select>
-                  <label for="floatingSelect">Assign Technician</label>
+                  <label htmlFor="floatingSelect">Assign Technician</label>
                   </div>
                   <div className="form-floating mb-3">
                     <input

@@ -25,7 +25,7 @@ export default class ManufacturerForm extends Component {
         const response = await fetch(createManufacturer, fetchConfig);
         if (response.ok) {
             const newManufacturer = await response.json();
-            console.log(newManufacturer);
+
         }
 
         const cleared = {
@@ -71,4 +71,3 @@ export default class ManufacturerForm extends Component {
         )
     }
 }
-

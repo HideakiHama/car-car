@@ -7,6 +7,9 @@ from common.json import ModelEncoder
 from .models import AutomobileVO, Technician, Service
 
 
+## Custom ModelEncoder
+
+
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["vin", "id"]

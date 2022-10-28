@@ -25,7 +25,6 @@ Step - 6 : Go to ## Design to read about how this application is used.
 
 
 
-
 ## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer.
 - Example : Let's use "Tesla" as our manufacturer
@@ -73,8 +72,8 @@ Creating a new service appointment for a particular automobile
 
 Looking at Service Appointments
 Next lets talk about the "Service Appointments".
-- This is the place where the user will see all the service appointments that is occuring currently.  - - You will see Vin of the automobile, Customer's name, the date of the service, time of the service, technician handling the service, and the reason for the visit.   Wait .. do you see... a VIP? (You should see the 'VIP' if you were following the guideline of making the inventory by Curtis Cheung
-and also entered "4Y1SL65848Z411439" when we were making a service appointment.)
+- This is the place where the user will see all the service appointments that is occuring currently.
+- You will see Vin of the automobile, Customer's name, the date of the service, time of the service, technician handling the service, and the reason for the visit.   Wait .. do you see... a VIP? (You should see the 'VIP' if you  entered "4Y1SL65848Z411439" when we were making a service appointment.)
 - The VIP tells us the customer bought the automobile from the companies inventory.  Congrats Jane!! your getting a VIP treatment for the Service.
 Other thing you'll see here:
 - ((  Delete Button  )) --> Deletes the appointment. Thus delete from the appointment list.
@@ -83,7 +82,7 @@ Other thing you'll see here:
 Service History
 - Finally the last part of the service is to check the past "Service History" for particular VIN number.
 - Enter the Vin on the search input. Type "4Y1SL65848Z411439" and press enter.
-- What do you see?  The past service histpry of VIN 4Y1SL65848Z411439!!
+- What do you see?  The past service history of VIN 4Y1SL65848Z411439!!
 
 
 
@@ -101,35 +100,109 @@ Service History
   Inventory(for polling service): port 8000
 - base URL of poll -> http://inventory-api:8000
 
-  React: Port 3000
+  React: Port 3000  (For checking out the FrontEnd)
 - URL -> http://localhost:3000/
 
 
-RESTful Service views with urls:
 ##
-  list_service are functins for:
+
+    RESTful Manufactures views with urls
+1. api_manufacturers are functions for:
+- GET-  get the list of manufacturers  http://localhost:8100/api/manufacturers/
+- POST- Create a manufacturers   http://localhost:8100/api/manufacturers/
+2. api_manufacturer are function for:
+- GET-  get the detail of manufacturer http://localhost:8100/api/manufacturers/<:id>/
+- PUT-  Update a manufacturer  http://localhost:8100/api/manufacturers/<:id>/
+- DELETE-  Delete a manufacturer  http://localhost:8100/api/manufacturers/<:id>/
+
+##
+
+    RESTful Vehicle models views with urls
+1. api_vehicle_models are functions for:
+- GET-  get the list of vehicle models  http://localhost:8100/api/models/
+- POST- Create a vehicle models   http://localhost:8100/api/models/
+2. api_vehicle_model are function for:
+- GET-  get the detail of vehicle model http://localhost:8100/api/models/:id/
+- PUT-  Update a vehicle model  http://localhost:8100/api/models/:id/
+- DELETE-  Delete a vehicle model  http://localhost:8100/api/models/:id/
+
+##
+
+    RESTful Automobile views with urls
+1. api_automobiles are functions for:
+- GET-  get the list of automobiles  http://localhost:8100/api/automobiles/
+- POST- Create a automobiles   http://localhost:8100/api/automobiles/
+2. api_automobile are function for:
+- GET-  get the detail of automobile 	http://localhost:8100/api/automobiles/:vin/
+- PUT-  Update a automobile 	http://localhost:8100/api/automobiles/:vin/
+- DELETE-  Delete a automobile  	http://localhost:8100/api/automobiles/:vin/
+
+##
+
+    RESTful Service views with urls
+1. list_service are functions for:
 - GET-  get the list of service  http://localhost:8080/api/service/
 - POST- Create a service   http://localhost:8080/api/service/
-  detail_service are function for:
-- GET-  get the detail of service http://localhost:8080/api/service/<str:vin>/
-- PUT-  Update a service  http://localhost:8080/api/service/<vin>/
-- DELETE-  Delete a service  http://localhost:8080/api/service/<str:vin>/
+2. detail_service are function for:
+- GET-  get the detail of service http://localhost:8080/api/service/<int:pk>/
+- PUT-  Update a service  http://localhost:8080/api/service/<int:pk>/
+- DELETE-  Delete a service  http://localhost:8080/api/service/<int:pk>/
 
-RESTful Technician views with urls:
 ##
-  list_technician are functins for:
+
+    RESTful Technician views with urls
+1. list_technician are functions for:
 - GET-  get the list of technician  http://localhost:8080/api/technician/
 - POST- Create a technician   http://localhost:8080/api/technician/
-  detail_technician are function for:
-- GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
+2. detail_technician are function for:
+- GET-  get the detail of technician http://localhost:8080/api/technician/<int:pk>/
 - PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
 - DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
+
+##
+
+    RESTful Sales Person views with urls
+1. sales_person_list are functions for:
+- GET-  get the list of sales person  http://localhost:8080/api/sales-persons/
+- POST- Create a sales person   http://localhost:8080/api/sales-persons/
+2. sales_person_details functions for:
+- GET-  get the detail of sales person http://localhost:8080/api/sales-persons/<int:pk>/
+- PUT-  Update a sales person  http://localhost:8080/api/sales-persons/<int:pk>/
+- DELETE-  Delete a sales person http://localhost:8080/api/sales-persons/<int:pk>/
+
+##
+
+    RESTful Customer views with urls
+1. customer_list are functions for:
+- GET-  get the list of customers http://localhost:8080/api/customers/
+- POST- Create a customer   http://localhost:8080/api/customers/
+2. customer_delete functions for:
+- GET-  get the detail of customer http://localhost:8080/api/customers/<int:pk>/
+- PUT-  Update a customer  http://localhost:8080/api/customers/<int:pk>/
+- DELETE-  Delete a customer http://localhost:8080/api/customers/<int:pk>/
+
+##
+
+    RESTful Sales Records views with urls
+1. sales_record_list are functions for:
+- GET-  get the list of Sales Records http://localhost:8080/sales-records/
+
+##
+
+    RESTful autmobileVO views with urls
+1. automobile_vo_list are functions for:
+- GET-  get the list of automobiles http://localhost:8080/api/automobileVO/
+2. auto_vo_delete functions for:
+- DELETE-  Delete a automobuiles http://localhost:8080/api/automobileVO/<int:pk>/
+
+##
+
 To delete inventory or employees you must log into admin - create a superuser in the cli of the api you want to delete something in. Then go to the admin page and log in. You can then delete whatever you want. Reason being, there is no login on the application thus anyone can delete things which would not be great.
 
 
 ## Service microservice
 
-    Model 1: Service
+1. Model 1: Service
   Model to create a service for the customer:
 
   - customer_name |  CharField  |  max_length = 25                  |  For generating customer's name
@@ -142,14 +215,14 @@ To delete inventory or employees you must log into admin - create a superuser in
   - service_finished |  BooleanField  |  default = False            |  Indicate if the service are finished
 
 
-    Model 2: Technician
+2. Model 2: Technician
   To Create a Technicain we need:
 
   - name             |   CharField     |  max_length = 25  |  Technician's name
   - employee_number  |   IntegerField  |  unique = True    |  A unique employee number to identify the employee just incase if theres same name
 
 
-    Model 3:AutomobileVO
+  Model 3:AutomobileVO
   Grab the VIN inventory data from the Inventory microservice (Automobile) to compare whether if the serviced automobile is from the past inventory.
   If it was the customoer will get VIP treatment.
 
