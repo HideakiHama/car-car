@@ -1,5 +1,5 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class ServiceForm extends React.Component{
 
@@ -15,7 +15,8 @@ class ServiceForm extends React.Component{
       technicians:[],
       reason:'',
       vip:true,
-      vins:[]
+      vins:[],
+      hasMadeAppt: false,
     }
 
 
@@ -47,6 +48,7 @@ class ServiceForm extends React.Component{
     delete data.customerName
     delete data.vins
     delete data.technicians
+    delete data.hasMadeAppt
 
     const serviceUrl = "http://localhost:8080/api/service/"
     const fetchConfig = {
@@ -58,7 +60,7 @@ class ServiceForm extends React.Component{
     }
     const response = await fetch(serviceUrl, fetchConfig);
     if(response.ok) {
-      const newService = await response.json()
+
 
       this.setState ({
         vinService:'',
@@ -66,7 +68,8 @@ class ServiceForm extends React.Component{
         date:'',
         time:'',
         technician:'',
-        reason:''
+        reason:'',
+        hasMadeAppt: true,
       });
   }
 }
@@ -122,12 +125,24 @@ class ServiceForm extends React.Component{
 
 
     render() {
+
+      let messageClasses = "alert alert-success mb-0 d-none"
+      let formClasses = ""
+      if (this.state.hasMadeAppt){
+          messageClasses = "alert alert-success mb-0"
+          formClasses = "d-none"
+      }
+
+     function reload(){
+        window.location.reload()
+     }
+
       return(
-  <div className="row">
+        <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
                 <h1 style= {{color:"green"}}>New Service Appointment</h1>
-                <form onSubmit={this.handleSubmit} id="create-service-form">
+                <form className={formClasses} onSubmit={this.handleSubmit} id="create-service-form">
 
                   <div className="form-floating mb-3">
                     <input
@@ -140,7 +155,7 @@ class ServiceForm extends React.Component{
                       name="vin_service"
                       className="form-control"
                     />
-                    <label htmlFor="vin_service">Vin number</label>
+                    <label htmlFor="vin_service">Vin number (17 characters long)</label>
                   </div>
 
                   <div className="form-floating mb-3">
@@ -210,8 +225,14 @@ class ServiceForm extends React.Component{
                     <label htmlFor="reason">The reason for the service appointment</label>
                   </div>
                   <button className="btn btn-outline-success">Register</button>
-
                 </form>
+
+                <div className={messageClasses}>
+                  <h3 style= {{color:"green"}} >Appointment registered!</h3>
+                  <button onClick={reload} className="btn btn-outline-success">Add more appointment</button>
+                  <NavLink to="/service/appointments"><button className="btn btn-outline-success" >Check all current Appointments</button></NavLink>
+                </div>
+
 
               </div>
             </div>

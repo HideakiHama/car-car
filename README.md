@@ -1,5 +1,8 @@
 # CarCar
 
+
+
+
 ## Link to Excalidraw diagram https://excalidraw.com/#json=232PGy0hUeoiSYqYuivVv,9-B8I70IfLKWPFedf0juYw
 
 ![](diagramCARCAR.png)
@@ -213,6 +216,23 @@ Service History
 To delete inventory or employees you must log into admin - create a superuser in the cli of the api you want to delete something in. Then go to the admin page and log in. You can then delete whatever you want. Reason being, there is no login on the application thus anyone can delete things which would not be great.
 
 
+## Inventory microservice
+
+1. Model 1 Manufacturer
+  - name  |  Charfield  |  max_length = 100, unique =  True  | unique manufaturer name
+
+2. Model 2 VehicleModel
+  - name           |  Charfield  |  max_length = 100  |  Vehicle's name
+  - picture_url    |  URLField   |                    |  To upload picture URL
+  - manufacturer   |  ForeignKey |  to Manufacturer, CASCADE on delete  |  To Choose the manufacturer that vehicle is belong
+
+3. Model 3 Automobile
+  - color  |  Charfield                  |  max_length = 50                 |  Entering the color of the automobile
+  - year   |  PositiveSmallIntegerField  |                                  |  Entering the year of the automobile
+  - vin    |  CharField                  |  max_length = 17, unique = True  |  Entering the UNIQUE 17 character VIN
+  - model  |  ForeignKey                 |  to VehicleModel, CASCADE on delete |  To choose the vehicle that automobile is belong
+
+
 ## Service microservice
 
 1. Model 1: Service
@@ -235,7 +255,7 @@ To delete inventory or employees you must log into admin - create a superuser in
   - employee_number  |   IntegerField  |  unique = True    |  A unique employee number to identify the employee just incase if theres same name
 
 
-  Model 3:AutomobileVO
+  Model 3:AutomobileVO (The Value Object)
   Grab the VIN inventory data from the Inventory microservice (Automobile) to compare whether if the serviced automobile is from the past inventory.
   If it was the customoer will get VIP treatment.
 

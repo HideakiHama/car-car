@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 
 class TechnicianForm extends React.Component{
 
@@ -7,7 +7,8 @@ class TechnicianForm extends React.Component{
     super(props)
     this.state = {
       name:'',
-      employeeNumber:''
+      employeeNumber:'',
+      hasMadeTech: false,
     }
 
 
@@ -24,6 +25,7 @@ class TechnicianForm extends React.Component{
     data.employee_number = data.employeeNumber
 
     delete data.employeeNumber
+    delete data.hasMadeTech
 
     const techUrl = "http://localhost:8080/api/technician/"
     const fetchConfig = {
@@ -35,12 +37,11 @@ class TechnicianForm extends React.Component{
     }
     const response = await fetch(techUrl, fetchConfig);
     if(response.ok) {
-      const newtech = await response.json()
-
 
       this.setState ({
         name:'',
-        employeeNumber:''
+        employeeNumber:'',
+        hasMadeTech: true,
       });
 
   }
@@ -58,12 +59,24 @@ class TechnicianForm extends React.Component{
     }
 
     render() {
+
+      let messageClasses = "alert alert-success mb-0 d-none"
+      let formClasses = ""
+      if (this.state.hasMadeTech){
+          messageClasses = "alert alert-success mb-0"
+          formClasses = "d-none"
+      }
+
+     function reload(){
+        window.location.reload()
+     }
+
       return(
   <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
                 <h1 style= {{color:"green"}} >New Technician</h1>
-                <form onSubmit={this.handleSubmit} id="create-technician-form">
+                <form className={formClasses} onSubmit={this.handleSubmit} id="create-technician-form">
                   <div className="form-floating mb-3">
                     <input
                       onChange={this.handleNameChange}
@@ -90,9 +103,15 @@ class TechnicianForm extends React.Component{
                     />
                     <label htmlFor="employee_id">Employee ID</label>
                   </div>
-
                   <button className="btn btn-outline-success">Register</button>
                 </form>
+
+                <div className={messageClasses}>
+                <h3 style= {{color:"green"}} >Technician Registered!</h3>
+                <button onClick={reload} className="btn btn-outline-success">Add more technicians</button>
+                <NavLink to="/"><button className="btn btn-outline-success" >Back to homepage</button></NavLink>
+                </div>
+
               </div>
             </div>
           </div>

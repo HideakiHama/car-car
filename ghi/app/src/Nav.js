@@ -74,7 +74,7 @@ function Nav() {
                       <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><NavLink className="dropdown-item" aria-current="page" to="technician/new">New Technician</NavLink></li>
                         <li><NavLink className="dropdown-item" aria-current="page" to="service/new">New Service Appointment</NavLink></li>
-                        <li><NavLink className="dropdown-item" aria-current="page" to="service/">Service Appointments</NavLink></li>
+                        <li><NavLink className="dropdown-item" aria-current="page" to="service/appointments">Service Appointments</NavLink></li>
                         <li><NavLink className="dropdown-item" aria-current="page" to="service/history">Service History</NavLink></li>
                       </ul>
                     </li>
