@@ -20,8 +20,8 @@
 ## Team:
 
 
-    * Person 1 - Aki Hama (Service)
-    * Person 2 - Curtis Cheung (Sales)
+    * Person 1 - Aki Hama (Service) / (Inventory)
+    * Person 2 - Curtis Cheung (Sales) / (Inventory)
 
 
 
