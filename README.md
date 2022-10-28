@@ -16,49 +16,15 @@ Step - 6 : Go to ## Design to read about how this application is used.
 - Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
 - You can follow along using our provided examples
 
-#############
-### Team: ###
-#############
+
+## Team:
+
 
     * Person 1 - Aki Hama (Service)
-
-## Design
-Before creating a service for the automobile please create the inventory (Follow the "creating inventory" guideline done by Curtis Cheung just below this section ("Person 2 - Curtis Cheung (Sales))
-
-Once automobile is created, go to the Service drop down meanu (click the down arrow)
-There you will see "New Technician", "New service appointment", "Service Appointments", and "Service History"
-## Register a New Technician
-Click the "New Technican" from the one of the scroll down after clicking Service.
--Enter Technician's Name. For example "John Doe"
--Enter Employee ID. Any unique number
-Click register to get the technician data registered.
-## Creating a new service appointment for a particular automobile
-Goto "New Service Appointment"
--Enter the 17 character VIN number, such as "4Y1SL65848Z411439".  Entering exactly 17 chacracters is IMPORTANT for 'magic' to happen in the backend.
-no .. more like neededing to have exact digit to compare with the vin in the inventory, which also have 17 character vin.
--Enter Customer's name.  Call it "Jane Doe".
--Enter the Date of Service.  Maybe "10/31/22"
--Enter the Time of Service.  "12pm" ?
--Assign a Technician from the drop down meanu.  One we have is "John Doe"  Click it
--Type down the reason for the service appointment on the input field just below the 'assigning technician'
-Maybe type it "Oil Change"
-Click register to get the service going!
-## Looking at Service Appointments
-Next lets talk about the "Service Appointments".
-This is the place where the user will see all the service appointments that is occuring currently.  You will see
-Vin of the automobile, Customer's name, the date of the service, time of the service, technician handling the service,
-and the reason for the visit.   Wait .. do you see... a VIP? (You should see the 'VIP' if you were following the guideline of making the inventory by Curtis Cheung
-and also entered "4Y1SL65848Z411439" when we were making a service appointment.)
-The VIP tells us the customer bought the automobile from the companies inventory.  Congrats Jane!! your getting a VIP treatment for the Service.
-Other thing you'll see here:
-((  Delete Button  )) --> Deletes the appointment. Thus delete from the appointment list.
-((  Finished Button  )) --> Delete the appointment list but keeps the past service for future reference.
-## Service History
-Finally the last part of the service is to check the past "Service History" for particular VIN number.
-Enter the Vin on the search input. Type "4Y1SL65848Z411439" and press enter.
-What do you see?  The past service histpry of VIN 4Y1SL65848Z411439!!
-
     * Person 2 - Curtis Cheung (Sales)
+
+
+
 
 ## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer.
@@ -87,83 +53,114 @@ To view past sales throughout the company you may choose to view the Sales recor
  To be more precise to see who is really selling the most cars you may go to past employee sales to filter between employees. As you type, the filter will start to take out the ones that do not fit the characters you are typing. Only leaving the desired employee that you want to look up.
 - The search bar is for employee name that you want to look up.
 
+Now head over to Service drop down meanu
+There you will see "New Technician", "New service appointment", "Service Appointments", and "Service History"
+- Register a New Technician
+- Click the "New Technican" from the one of the scroll down after clicking Service.
+- Enter Technician's Name. For example "John Doe"
+- Enter Employee ID. Any unique number
+- Click register to get the technician data registered.
+
+Creating a new service appointment for a particular automobile
+- Goto "New Service Appointment"
+- Enter the 17 character VIN number, such as "4Y1SL65848Z411439".  Entering exactly 17 chacracters is IMPORTANT for 'magic' to happen in the backend. no .. more like needing to have exact digit to compare with the vin in the inventory, which also have 17 character vin.
+- Enter Customer's name.  Call it "Jane Doe".
+- Enter the Date of Service.  Maybe "10/31/22"
+- Enter the Time of Service.  "12pm" ?
+- Assign a Technician from the drop down meanu.  One we have is "John Doe"  Click it
+- Type down the reason for the service appointment on the input field just below the 'assigning technician' Maybe type it "Oil Change"
+- Click register to get the service going!
+
+Looking at Service Appointments
+Next lets talk about the "Service Appointments".
+- This is the place where the user will see all the service appointments that is occuring currently.  - - You will see Vin of the automobile, Customer's name, the date of the service, time of the service, technician handling the service, and the reason for the visit.   Wait .. do you see... a VIP? (You should see the 'VIP' if you were following the guideline of making the inventory by Curtis Cheung
+and also entered "4Y1SL65848Z411439" when we were making a service appointment.)
+- The VIP tells us the customer bought the automobile from the companies inventory.  Congrats Jane!! your getting a VIP treatment for the Service.
+Other thing you'll see here:
+- ((  Delete Button  )) --> Deletes the appointment. Thus delete from the appointment list.
+- ((  Finished Button  )) --> Delete the appointment list but keeps the past service for future reference.
+
+Service History
+- Finally the last part of the service is to check the past "Service History" for particular VIN number.
+- Enter the Vin on the search input. Type "4Y1SL65848Z411439" and press enter.
+- What do you see?  The past service histpry of VIN 4Y1SL65848Z411439!!
 
 
-######################
-## Port Information ##
-######################
 
-    Sales: Port 8090
-URL -> http://localhost:8080/api/sales/
+## Port Information
 
-    Service: Port 8080
-URL -> http://localhost:8080/api/service/
+  Sales: Port 8090
+- URL -> http://localhost:8080/api/sales/
 
-    Inventory(for browser or insomnia): port 8100
-URL -> http://localhost:8100/api/automobiles/
+  Service: Port 8080
+- URL -> http://localhost:8080/api/service/
 
-    Inventory(for polling service): port 8000
-base URL of poll -> http://inventory-api:8000
+  Inventory(for browser or insomnia): port 8100
+- URL -> http://localhost:8100/api/automobiles/
 
-    React: Port 3000
-URL -> http://localhost:3000/
+  Inventory(for polling service): port 8000
+- base URL of poll -> http://inventory-api:8000
+
+  React: Port 3000
+- URL -> http://localhost:3000/
 
 
-    RESTful Service views with urls:
-list_service are functins for:
-  -GET-  get the list of service  http://localhost:8080/api/service/
-  -POST- Create a service   http://localhost:8080/api/service/
-detail_service are function for:
-  -GET-  get the detail of service http://localhost:8080/api/service/<str:vin>/
-  -PUT-  Update a service  http://localhost:8080/api/service/<vin>/
-  -DELETE-  Delete a service  http://localhost:8080/api/service/<str:vin>/
+RESTful Service views with urls:
+##
+  list_service are functins for:
+- GET-  get the list of service  http://localhost:8080/api/service/
+- POST- Create a service   http://localhost:8080/api/service/
+  detail_service are function for:
+- GET-  get the detail of service http://localhost:8080/api/service/<str:vin>/
+- PUT-  Update a service  http://localhost:8080/api/service/<vin>/
+- DELETE-  Delete a service  http://localhost:8080/api/service/<str:vin>/
 
-    RESTful Technician views with urls:
-list_technician are functins for:
-   -GET-  get the list of technician  http://localhost:8080/api/technician/
-   -POST- Create a technician   http://localhost:8080/api/technician/
-detail_technician are function for:
-   -GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
-   -PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
-  -DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
+RESTful Technician views with urls:
+##
+  list_technician are functins for:
+- GET-  get the list of technician  http://localhost:8080/api/technician/
+- POST- Create a technician   http://localhost:8080/api/technician/
+  detail_technician are function for:
+- GET-  get the detail of service http://localhost:8080/api/technician/<int:pk>/
+- PUT-  Update a technician  http://localhost:8080/api/technician/<int:pk/
+- DELETE-  Delete a technician  http://localhost:8080/api/technician/<int:pk>/
 To delete inventory or employees you must log into admin - create a superuser in the cli of the api you want to delete something in. Then go to the admin page and log in. You can then delete whatever you want. Reason being, there is no login on the application thus anyone can delete things which would not be great.
 
-##########################
-## Service microservice ##
-##########################
+
+## Service microservice
 
     Model 1: Service
   Model to create a service for the customer:
 
-  customer_name |  CharField  |  max_length = 25                  |  For generating customer's name
-  date          |  DateField  |                                   |  Date of the service
-  reason        |  CharField  |  max_length = 100                 |  Customer's reason for automobile service
-  technician    |  ForeignKey |  to Technician CASCADE on delete  |  Choosing created technician from drop down
-  vin_service   |  CharField  |  max_length = 17 (IMPORTANT)      |  For User to enter the VIN (Later it matches whether the automobile was from the past inventory, for VIP treatment)
-  time          |  TimeField  |                                   |  Choosing time for the visit
-  vip           |  BooleanField  |  default = False               |  VIP treatment for customer who bought the vechile from the past inventory
-  service_finished |  BooleanField  |  default = False            |  Indicate if the service are finished
+  - customer_name |  CharField  |  max_length = 25                  |  For generating customer's name
+  - date          |  DateField  |                                   |  Date of the service
+  - reason        |  CharField  |  max_length = 100                 |  Customer's reason for automobile service
+  - technician    |  ForeignKey |  to Technician CASCADE on delete  |  Choosing created technician from drop down
+  - vin_service   |  CharField  |  max_length = 17 (IMPORTANT)      |  For User to enter the VIN (Later it - matches whether the automobile was from the past inventory, for VIP treatment)
+  - time          |  TimeField  |                                   |  Choosing time for the visit
+  - vip           |  BooleanField  |  default = False               |  VIP treatment for customer who bought the vechile from the past inventory
+  - service_finished |  BooleanField  |  default = False            |  Indicate if the service are finished
 
 
     Model 2: Technician
   To Create a Technicain we need:
 
-  name             |   CharField     |  max_length = 25  |  Technician's name
-  employee_number  |   IntegerField  |  unique = True    |  A unique employee number to identify the employee just incase if theres same name
+  - name             |   CharField     |  max_length = 25  |  Technician's name
+  - employee_number  |   IntegerField  |  unique = True    |  A unique employee number to identify the employee just incase if theres same name
 
 
     Model 3:AutomobileVO
   Grab the VIN inventory data from the Inventory microservice (Automobile) to compare whether if the serviced automobile is from the past inventory.
   If it was the customoer will get VIP treatment.
 
-  vin              |   CharField     |   max_length = 17 (IMPORTANT)  | VIN number that user enter must be vin length of 17 this is due to
+  - vin              |   CharField     |   max_length = 17 (IMPORTANT)  | VIN number that user enter must - be vin length of 17 this is due to
                                                                         inventory vin being length of 17.  When we do the comparison
                                                                         the length also have to match
 
 
-########################
-## Sales microservice ##
-########################
+
+## Sales microservice
+
 
 Explain your models and integration with the inventory
 microservice, here.
