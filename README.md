@@ -11,10 +11,10 @@
 - Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
   - in the vscode terminal run command --> docker compose up --build
 - Step - 5 : You can now open http://localhost:3000/ to use said application
-- click link to localhost:3000
+  - click link to localhost:3000
 - Step - 6 : Go to ## Design to read about how this application is used.
 - Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
-- You can follow along using our provided examples
+- You can follow along using our provided examples located in ## Design
 
 
 ## Team:
