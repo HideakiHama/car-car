@@ -76,7 +76,7 @@ export default class SalesRepForm extends Component {
             fetch('http://localhost:8090/api/sales-persons/')
                 .then(sales_persons => sales_persons.json())
                 .then(sales_persons => this.setState(sales_persons))
-            fetch('http://localhost:8090/api/customers')
+            fetch('http://localhost:8090/api/customers/')
                 .then(customers => customers.json())
                 .then(customers => this.setState(customers))
             fetch('http://localhost:8090/api/automobileVO/')
