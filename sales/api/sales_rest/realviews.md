@@ -28,7 +28,7 @@ class SalesRecordListEncoder(ModelEncoder):
     encoders = {
         "sales_person": SalesPersonEncoder(),
         "customer": CustomerEncoder(),
-        "automobile": AutomobileVOEncoder()
+        # "automobile": AutomobileVOEncoder()
     }
 
     def get_extra_data(self, o):

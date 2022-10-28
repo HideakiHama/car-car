@@ -16,7 +16,7 @@ Step - 6 : Go to ## Design to read about how this application is used.
 Team:
 
 * Person 1 - Aki Hama (Service)
-* Person 2 - Curtis Cheung (Sales)
+* Person 2 - Curtis Cheung (Sales)/(Inventory)
 
 ## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer.
