@@ -1,5 +1,97 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 
+
+// export default class SalesRepForm extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             automobiles: [],
+//             automobile: '',
+//             sales_persons: [],
+//             sales_person: '',
+//             customers: [],
+//             customer: '',
+//             sales_price: "",
+//         };
+
+//         this.handleAutomobileChange = this.handleAutomobileChange.bind(this);
+//         this.handleCustomerChange = this.handleCustomerChange.bind(this);
+//         this.handleSalesPriceChange = this.handleSalesPriceChange.bind(this);
+//         this.handleSalesPersonChange = this.handleSalesPersonChange.bind(this);
+//         this.handleSubmit = this.handleSubmit.bind(this);
+//     }
+
+//     async handleSubmit(event) {
+//         event.preventDefault();
+//         const data = { ...this.state };
+//         delete data.automobiles
+//         delete data.sales_persons
+//         delete data.customers
+//         const createSalesRecord = 'http://localhost:8090/api/sales-records/';
+//         const fetchConfig = {
+//             method: 'post',
+//             body: JSON.stringify(data),
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         };
+
+//         console.dir(data);
+
+//         const response = await fetch(createSalesRecord, fetchConfig);
+//         if (response.ok) {
+//             const newSalesRecord = await response.json();
+//             console.log(newSalesRecord);
+//         }
+
+//         const cleared = {
+//             automobile: "",
+//             sales_person: "",
+//             customer: "",
+//             sales_price: ""
+//         }
+//         this.setState(cleared);
+//     }
+
+//     handleAutomobileChange(event) {
+//         const value = event.target.value;
+//         this.setState({ automobile: value })
+//     }
+
+//     handleSalesPersonChange(event) {
+//         const value = event.target.value;
+//         this.setState({ sales_person: value })
+//     }
+
+//     handleCustomerChange(event) {
+//         const value = event.target.value;
+//         this.setState({ customer: value })
+//     }
+
+//     handleSalesPriceChange(event) {
+//         const value = event.target.value;
+//         this.setState({ sales_price: value })
+//     }
+
+
+//     async componentDidMount() {
+//             fetch('http://localhost:8090/api/sales-persons/')
+//                 .then(sales_persons => sales_persons.json())
+//                 .then(sales_persons => this.setState(sales_persons))
+//             fetch('http://localhost:8090/api/customers/')
+//                 .then(customers => customers.json())
+//                 .then(customers => this.setState(customers))
+
+//             fetch('http://localhost:8100/api/automobiles/')
+//                 .then(automobiles => automobiles.json())
+//                 .then(automobiles => 
+//                     this.setState({
+//                         automobiles: automobiles.autos
+//                     })
+//                 )
+//     }
+
+import React, { Component } from 'react'
 
 export default class SalesRepForm extends Component {
     constructor(props) {
@@ -79,10 +171,16 @@ export default class SalesRepForm extends Component {
             fetch('http://localhost:8090/api/customers')
                 .then(customers => customers.json())
                 .then(customers => this.setState(customers))
-            fetch('http://localhost:8090/api/automobileVO/')
+            fetch('http://localhost:8100/api/automobiles/')
                 .then(automobiles => automobiles.json())
-                .then(automobiles => this.setState(automobiles))
-
+                .then(automobiles => 
+                    this.setState({
+                        automobiles: automobiles.autos
+                    })
+                )
+            // fetch('http://localhost:8090/api/automobileVO/')
+            //     .then(automobiles => automobiles.json())
+            //     .then(automobiles => this.setState(automobiles))
     }
     render() {
         return (
@@ -102,7 +200,8 @@ export default class SalesRepForm extends Component {
                                                         {automobile.vin}
                                                     </option>
                                                 );
-                                            })}
+                                            })    
+                                        }
                                     </select>
                                 </div>
                                 <div className="mb-3">

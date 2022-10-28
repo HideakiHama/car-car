@@ -71,7 +71,7 @@ function Nav() {
                       <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                       </a>
-                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><NavLink className="dropdown-item" aria-current="page" to="technician/new">New Technician</NavLink></li>
                         <li><NavLink className="dropdown-item" aria-current="page" to="service/new">New Service Appointment</NavLink></li>
                         <li><NavLink className="dropdown-item" aria-current="page" to="service/list">Service Appointments</NavLink></li>
