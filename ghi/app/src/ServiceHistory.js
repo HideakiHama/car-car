@@ -16,7 +16,7 @@ export default function ServiceHistory({ pastService }) {
 
   return (
     <>
-    <h1>Service Appointments</h1>
+    <h1 style= {{color:"green"}} >Service History</h1>
       <div className="constiner">
         <div className="pb row">
           <form id="searchForm" onSubmit={submitHandler}>
@@ -24,7 +24,7 @@ export default function ServiceHistory({ pastService }) {
               <button type="submit" >Search Vin</button>
           </form>
         </div>
-                { clicked !== null && search.length !== 0 &&
+                { clicked !== null && search.length === 17 &&
               <table className="table table-striped">
                 <thead>
                   <tr>
@@ -44,7 +44,7 @@ export default function ServiceHistory({ pastService }) {
                       <td>{service.vin_service}</td>
                       <td>{service.customer_name}</td>
                       <td>{service.date}</td>
-                      <td>{service.time["name"]}</td>
+                      <td>{service.time}</td>
                       <td>{service.technician["name"]}</td>
                       <td>{service.reason}</td>
                     </tr>

@@ -4,7 +4,7 @@ import json
 
 from django.views.decorators.http import require_http_methods
 from common.json import ModelEncoder
-from .models import AutomobileVO, Technician, Service, Time
+from .models import AutomobileVO, Technician, Service
 
 
 class AutomobileVOEncoder(ModelEncoder):
@@ -15,11 +15,6 @@ class AutomobileVOEncoder(ModelEncoder):
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = ["name", "employee_number", "id"]
-
-
-class TimeEncoder(ModelEncoder):
-    model = Time
-    properties = ["name", "id"]
 
 
 class ServiceEncoder(ModelEncoder):
@@ -38,7 +33,6 @@ class ServiceEncoder(ModelEncoder):
 
     encoders = {
         "technician": TechnicianEncoder(),
-        "time": TimeEncoder(),
     }
 
 
@@ -58,11 +52,6 @@ def list_service(request):
 
         except Technician.DoesNotExist:
             return JsonResponse({"message": "Technician doesn't exist"}, status=400)
-        try:
-            time = Time.objects.get(id=content["time"])
-            content["time"] = time
-        except Time.DoesNotExist:
-            return JsonResponse({"message": "Time doesn't exist"}, status=400)
 
         service = Service.objects.create(**content)
 
@@ -111,17 +100,3 @@ def detail_technician(request, pk):
         Technician.objects.filter(id=pk).update(**content)
         technician = Technician.objects.get(id=pk)
         return JsonResponse(technician, encoder=TechnicianEncoder, safe=False)
-
-
-### Time ###
-
-
-@require_http_methods(["GET", "POST"])
-def list_time(request):
-    if request.method == "GET":
-        time = Time.objects.all()
-        return JsonResponse({"time": time}, encoder=TimeEncoder)
-    else:
-        content = json.loads(request.body)
-        time = Time.objects.create(**content)
-        return JsonResponse(time, encoder=TimeEncoder, safe=False)

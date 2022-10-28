@@ -29,7 +29,7 @@ const finishedService = async (id) => {
 
   return(
     <div>
-      <h1>Service Appointments</h1>
+      <h1 style= {{color:"green"}} >Service Appointments</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -52,12 +52,12 @@ const finishedService = async (id) => {
                 <td>{service.vip ? 'VIP': false}</td>
                 <td>{service.customer_name}</td>
                 <td>{service.date}</td>
-                <td>{service.time["name"]}</td>
+                <td>{service.time}</td>
                 <td>{service.technician["name"]}</td>
                 <td>{service.reason}</td>
 
-                <td><button className="btn btn-danger" onClick={() => deleteService(service.id)} type="button">Cancel</button></td>
                 <td><button className="btn btn-success" onClick={() => finishedService(service.id)} type="button">Finished</button></td>
+                <td><button className="btn btn-danger" onClick={() => deleteService(service.id)} type="button">Delete</button></td>
               </tr>
             );
           })}

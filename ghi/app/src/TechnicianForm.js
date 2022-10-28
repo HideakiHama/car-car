@@ -5,7 +5,6 @@ class TechnicianForm extends React.Component{
 
   constructor(props) {
     super(props)
-    console.log(props)
     this.state = {
       name:'',
       employeeNumber:''
@@ -37,15 +36,15 @@ class TechnicianForm extends React.Component{
     const response = await fetch(techUrl, fetchConfig);
     if(response.ok) {
       const newtech = await response.json()
-      console.log(newtech)
+
 
       this.setState ({
         name:'',
         employeeNumber:''
       });
 
-
   }
+
 }
 
     handleNameChange(event){
@@ -63,7 +62,7 @@ class TechnicianForm extends React.Component{
   <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Register a Technician </h1>
+                <h1 style= {{color:"green"}} >New Technician</h1>
                 <form onSubmit={this.handleSubmit} id="create-technician-form">
                   <div className="form-floating mb-3">
                     <input
@@ -92,7 +91,7 @@ class TechnicianForm extends React.Component{
                     <label htmlFor="employee_id">Employee ID</label>
                   </div>
 
-                  <button className="btn btn-primary">Register</button>
+                  <button className="btn btn-outline-success">Register</button>
                 </form>
               </div>
             </div>

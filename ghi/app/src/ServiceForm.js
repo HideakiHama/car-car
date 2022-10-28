@@ -11,7 +11,6 @@ class ServiceForm extends React.Component{
       customerName:'',
       date:'',
       time:'',
-      times:[],
       technician:'',
       technicians:[],
       reason:'',
@@ -52,7 +51,6 @@ class ServiceForm extends React.Component{
 
     delete data.vinService
     delete data.customerName
-    delete data.times
     delete data.vins
     delete data.technicians
 
@@ -130,14 +128,6 @@ class ServiceForm extends React.Component{
           this.setState({vins: data.autos})
       }
 
-      const timeUrl = "http://localhost:8080/api/time/"
-      const timeResponse = await fetch(timeUrl);
-      if (timeResponse.ok) {
-        const data = await timeResponse.json();
-
-          this.setState({times: data.time})
-      }
-
 
 
     }
@@ -148,22 +138,8 @@ class ServiceForm extends React.Component{
   <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Create a Service</h1>
+                <h1 style= {{color:"green"}}>New Service Appointment</h1>
                 <form onSubmit={this.handleSubmit} id="create-service-form">
-
-                  {/* <div className="form-floating mb-3">
-                  <select required value={this.state.vinService} onChange={this.handleVinServiceChange} id="technician" name="technician" className="form-select">
-                    <option value="" >Find Vin</option>
-                    {this.state.vins.map(autos => {
-                      return (
-                        <option key={autos.vin} value={autos.vin}>
-                             {autos.vin}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  </div> */}
-
 
                   <div className="form-floating mb-3">
                     <input
@@ -205,21 +181,7 @@ class ServiceForm extends React.Component{
                     />
                     <label htmlFor="date">Date of Service</label>
                   </div>
-
                   <div className="form-floating mb-3">
-                  <select required value={this.state.time} onChange={this.handleTimeChange} id="time" name="time" className="form-select">
-                    <option value="" >Time</option>
-                    {this.state.times.map(time => {
-                      return (
-                        <option key={time.id} value={time.id}>
-                             {time.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  </div>
-
-                  {/* <div className="form-floating mb-3">
                     <input
                       onChange={this.handleTimeChange}
                       value = {this.state.time}
@@ -231,18 +193,20 @@ class ServiceForm extends React.Component{
                       className="form-control"
                     />
                     <label htmlFor="time">Time of Service</label>
-                  </div> */}
+                  </div>
+
                   <div className="form-floating mb-3">
                   <select required value={this.state.technician} onChange={this.handleTechnicianChange} id="technician" name="technician" className="form-select">
-                    <option value="" >Assign Technician</option>
+                    <option value="" >Select below</option>
                     {this.state.technicians.map(tech => {
                       return (
                         <option key={tech.id} value={tech.id}>
-                             {tech.name}
+                             {tech.name}  -  Employee ID:{tech.employee_number}
                         </option>
                       );
                     })}
                   </select>
+                  <label for="floatingSelect">Assign Technician</label>
                   </div>
                   <div className="form-floating mb-3">
                     <input
@@ -257,7 +221,7 @@ class ServiceForm extends React.Component{
                     />
                     <label htmlFor="reason">The reason for the service appointment</label>
                   </div>
-                  <button className="btn btn-primary">Register</button>
+                  <button className="btn btn-outline-success">Register</button>
 
                 </form>
 
