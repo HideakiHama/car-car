@@ -64,7 +64,7 @@ export default class SalesRepForm extends Component {
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input onChange={this.handleEmployeeNumberChange} value={this.state.employeeNumber} placeholder="Employee Number" required type="number" name="employeeNumber" id="employeeNumber" className="form-control" />
-                                    <label htmlFor="employeeNumber">Employee Number</label>
+                                    <label htmlFor="employeeNumber">Employee Number - max 5 digits</label>
                                 </div>
                                 <button className="btn btn-outline-success">Let's get to Selling</button>
                             </form>
