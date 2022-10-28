@@ -23,7 +23,7 @@ Step - 6 : Go to ## Design to read about how this application is used.
     * Person 1 - Aki Hama (Service)
 
 ## Design
-Before creating a service for the automobile please create the inventory (Follow the "creating inventory" guideline done by Curtis Cheung just below this section)
+Before creating a service for the automobile please create the inventory (Follow the "creating inventory" guideline done by Curtis Cheung just below this section ("Person 2 - Curtis Cheung (Sales))
 
 Once automobile is created, go to the Service drop down meanu (click the down arrow)
 There you will see "New Technician", "New service appointment", "Service Appointments", and "Service History"
