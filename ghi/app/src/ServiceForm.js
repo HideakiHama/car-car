@@ -229,11 +229,8 @@ class ServiceForm extends React.Component{
 
                 <div className={messageClasses}>
                   <h3 style= {{color:"green"}} >Appointment registered!</h3>
-                  <button onClick={reload} className="btn btn-outline-success">Add more appointment</button>
-                  <NavLink to="/service/appointments"><button className="btn btn-outline-success" >Check all current Appointments</button></NavLink>
+                  <button onClick={reload} className="btn btn-outline-success">Go Back</button>
                 </div>
-
-
               </div>
             </div>
           </div>
