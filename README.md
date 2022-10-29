@@ -242,7 +242,7 @@ To delete inventory or employees you must log into admin - create a superuser in
   - employee_number  |   IntegerField  |  unique = True    |  A unique employee number to identify the employee just incase if theres same name
 
 
-  Model 3:AutomobileVO (The Value Object)
+3. Model 3:AutomobileVO (The Value Object)
   Grab the VIN inventory data from the Inventory microservice (Automobile) to compare whether if the serviced automobile is from the past inventory.
   If it was the customoer will get VIP treatment.
 

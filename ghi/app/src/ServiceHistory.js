@@ -10,7 +10,6 @@ export default function ServiceHistory({ pastService }) {
     event.preventDefault();
     setClicked(pastService);
 
-    // setSearch("");
   }
 
   return (
@@ -19,7 +18,7 @@ export default function ServiceHistory({ pastService }) {
       <div className="constiner">
         <div className="pb row">
           <form className="input-group mb-3" id="searchForm" onSubmit={submitHandler}>
-              <input className="form-control" onChange={handleFilter} value={search} type="text" placeholder="Enter the 17 character VIN number"/>
+              <input className="form-control" onChange={handleFilter} value={search} type="text" placeholder="Enter the 17 character VIN"/>
               <div className="input-group-append">
                 <button className="btn btn-outline-success" type="submit" >Search Vin</button>
               </div>
