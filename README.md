@@ -5,6 +5,8 @@
 
 ## Link to Excalidraw diagram https://excalidraw.com/#json=232PGy0hUeoiSYqYuivVv,9-B8I70IfLKWPFedf0juYw
 
+![](diagramCARCAR.png)
+
 - Step - 1 : Fork This Repo / then clone the forked
   - use git clone (URL) --> AFTER FORKING
 - Step - 2 : Open the cloned repo - cd into repo then maybe use code . in terminal ## cd ->whatever folder you put project beta in<- then do it again into the project
@@ -14,19 +16,30 @@
 - Step - 4 : In terminal run ## docker compose up --build ##, this will create all docker containers required to run the application
   - in the vscode terminal run command --> docker compose up --build
 - Step - 5 : You can now open http://localhost:3000/ to use said application
-- click link to localhost:3000
+  - click link to localhost:3000
 - Step - 6 : Go to ## Design to read about how this application is used.
 - Also note, the nav bar, works, you have to click the arrows next to the names to access the dropdown menu for each section of the nav ###
-- You can follow along using our provided examples
+- You can follow along using our provided examples located in ## Design
 
 
 ## Team:
 
 
-    * Person 1 - Aki Hama (Service)
-    * Person 2 - Curtis Cheung (Sales)
+    * Person 1 - Aki Hama (Service) / (Inventory)
+    * Person 2 - Curtis Cheung (Sales) / (Inventory)
 
+## Stack
 
+- HTML/CSS
+- Python
+- Django
+- JavaScript
+- React
+- PostgreSQL
+- Bootstrap
+- RESTful APIs
+- Docker
+- Microservices
 
 ## Design (Here is a provided example to follow, to learn about our application)
 - The design for the application on the Seller side is first you have to create an inventory. On the navbar, go to Inventory, then create a Manufacturer.
@@ -258,22 +271,23 @@ To delete inventory or employees you must log into admin - create a superuser in
 Explain your models and integration with the inventory
 microservice, here.
 Created four models for microservice
-######################################################################
-- Model 1 - AutomobileVO - This Value Object Model serves to integrate the inventory microservice by using the vin property.
-- This allows us to make the foreign key relationship between salesrecord and automobile from the inventory.
-######################################################################
+
+- Model 1 - AutomobileVO 
+  - This Value Object Model serves to integrate the inventory microservice by using the vin property.
+  - This allows us to make the foreign key relationship between salesrecord and automobile from the inventory.
+
 - Model 2 - Customer - Each customer has three properties
-- prop_1 - Name
-- prop_2 - Address
-- prop_3 - Phone Number
-######################################################################
+  - prop_1 - Name
+  - prop_2 - Address
+  - prop_3 - Phone Number
+
 - Model 3 - SalesPerson - Each sales person has three properties
-- prop_1 - Name
-- prop_2 - Employee Number
-- prop_3 - Sales Made --> connected to the sales record model
-######################################################################
+  - prop_1 - Name
+  - prop_2 - Employee Number
+  - prop_3 - Sales Made --> connected to the sales record model
+
 - Model 4 - SalesRecord - Model used to create a record using ForeignKey to the other 3 models - props in this are foreign keys
-- prop_1 - ForeignKey --> AutomobileVO
-- prop_2 - ForeignKey --> Customer
-- prop_3 - ForeignKey --> SalesPerson
-######################################################################
+  - prop_1 - ForeignKey --> AutomobileVO
+  - prop_2 - ForeignKey --> Customer
+  - prop_3 - ForeignKey --> SalesPerson
+
